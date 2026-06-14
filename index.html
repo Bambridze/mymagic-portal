@@ -25,8 +25,8 @@
         </div>
     </main>
 
-    <!-- СКРЫТЫЙ МИРОВОЙ ПОРТАЛ (ИСПРАВЛЕНО: Теперь намертво скрыт через жесткий стиль style="display: none;") -->
-    <main id="portal-container" style="display: none;" class="flex-col items-center max-w-4xl mx-auto w-full flex-grow pt-8">
+    <!-- СКРЫТЫЙ ПОРТАЛ (ЗАПЕРТ НА КЛЮЧ HIDDEN) -->
+    <main id="portal-container" hidden class="flex-col items-center max-w-4xl mx-auto w-full flex-grow pt-8">
         <div class="flex justify-between items-center w-full border-b border-gray-800 pb-4 mb-8">
             <h2 class="text-2xl font-black tracking-widest neon-cyan">🔥 DEVELOPER CONSOLE</h2>
             <button onclick="lockPortal()" class="text-xs bg-red-900/40 text-red-400 border border-red-800 px-3 py-1 rounded-lg hover:bg-red-900 transition">ЗАКРЫТЬ ПОРТАЛ</button>
@@ -52,9 +52,9 @@
         </section>
     </main>
 
-        <footer class="w-full text-center border-t border-gray-900 pt-4 mt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-600 gap-2">
+    <!-- ПОДВАЛ С ОТСТУПАМИ И ТОЧКОЙ -->
+    <footer class="w-full text-center border-t border-gray-900 pt-4 mt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-600 gap-2">
         <div>© 2026 S-production. Все права защищены магией.</div>
-        <!-- ИСПРАВЛЕНО: Добавлен правильный отступ (gap-4) между ссылками, чтобы они не слипались -->
         <div class="flex gap-4">
             <a href="privacy.html" class="hover:underline hover:text-gray-400">Privacy Policy</a>
             <span class="text-gray-800">•</span>
@@ -62,31 +62,23 @@
         </div>
     </footer>
 
-
     <script>
         const teaser = document.getElementById("teaser-container");
         const portal = document.getElementById("portal-container");
 
         function openAdminBypass() {
             const pass = prompt("Введите секретный пароль Создателя для входа в портал:");
-            if (pass === "traveler") {
-                teaser.style.display = "none";
-                portal.style.display = "flex";
-                localStorage.setItem("magic_admin_session", "active");
+            if (pass === "tired traveler") { // <-- ИСПРАВЛЕНО: Новый надёжный пароль
+                teaser.setAttribute("hidden", "true");
+                portal.removeAttribute("hidden");
             } else if (pass !== null) {
                 alert("Доступ отклонён. Совет Магов следит за тобой.");
             }
         }
 
         function lockPortal() {
-            localStorage.removeItem("magic_admin_session");
-            portal.style.display = "none";
-            teaser.style.display = "flex";
-        }
-
-        if (localStorage.getItem("magic_admin_session") === "active") {
-            teaser.style.display = "none";
-            portal.style.display = "flex";
+            portal.setAttribute("hidden", "true");
+            teaser.removeAttribute("hidden");
         }
     </script>
 </body>
