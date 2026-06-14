@@ -52,10 +52,16 @@
         </section>
     </main>
 
-    <footer class="w-full text-center border-t border-gray-900 pt-4 mt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-600 gap-2">
+        <footer class="w-full text-center border-t border-gray-900 pt-4 mt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-600 gap-2">
         <div>© 2026 S-production. Все права защищены магией.</div>
-        <div class="flex gap-4"><a href="privacy.html" class="hover:underline hover:text-gray-400">Privacy Policy</a><a href="manual.html" class="hover:underline hover:text-gray-400">User Manual</a></div>
+        <!-- ИСПРАВЛЕНО: Добавлен правильный отступ (gap-4) между ссылками, чтобы они не слипались -->
+        <div class="flex gap-4">
+            <a href="privacy.html" class="hover:underline hover:text-gray-400">Privacy Policy</a>
+            <span class="text-gray-800">•</span>
+            <a href="manual.html" class="hover:underline hover:text-gray-400">User Manual</a>
+        </div>
     </footer>
+
 
     <script>
         const teaser = document.getElementById("teaser-container");
