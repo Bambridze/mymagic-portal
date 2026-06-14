@@ -4,57 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyMagic 🔮 Официальный Магический Портал</title>
-    <!-- Подключаем Tailwind CSS для крутого неонового дизайна -->
     <script src="https://tailwindcss.com"></script>
     <style>
-        body {
-            background-color: #0A0A0F;
-            color: #E5E5E5;
-            font-family: system-ui, -apple-system, sans-serif;
-        }
-
-        .neon-green {
-            color: #00FF66;
-            text-shadow: 0 0 10px rgba(0,255,102,0.4);
-        }
-
-        .neon-cyan {
-            color: #00FFFF;
-            text-shadow: 0 0 10px rgba(0,255,255,0.4);
-        }
-
-        .border-neon {
-            border-color: rgba(0,255,102,0.2);
-            box-shadow: 0 0 15px rgba(0,255,102,0.1);
-        }
+        body { background-color: #0A0A0F; color: #E5E5E5; font-family: system-ui, -apple-system, sans-serif; }
+        .neon-green { color: #00FF66; text-shadow: 0 0 10px rgba(0,255,102,0.4); }
+        .neon-cyan { color: #00FFFF; text-shadow: 0 0 10px rgba(0,255,255,0.4); }
+        .border-neon { border-color: rgba(0,255,102,0.2); box-shadow: 0 0 15px rgba(0,255,102,0.1); }
     </style>
 </head>
 <body class="flex flex-col min-h-screen justify-between p-6 overflow-x-hidden">
 
     <!-- ТАИНСТВЕННАЯ ЗАГЛУШКА ДЛЯ ОБЩЕСТВЕННОСТИ -->
-    <main id="teaser-container" class="flex flex-col items-center justify-center flex-grow text-center px-4 transition-all duration-500">
-        <!-- Секретный триггер: Клик по этому логотипу откроет окно ввода пароля разработчика -->
+    <main id="teaser-container" class="flex flex-col items-center justify-center flex-grow text-center px-4">
         <div onclick="openAdminBypass()" class="cursor-pointer select-none text-6xl md:text-8xl mb-6 animate-pulse filter drop-shadow-[0_0_20px_rgba(0,255,255,0.3)]">🔮</div>
-
         <h1 class="text-3xl md:text-5xl font-black tracking-wider mb-4 neon-cyan">MY MAGIC PORTAL</h1>
-        <p class="text-gray-400 text-sm md:text-base max-w-md mb-8 leading-relaxed">
-            Высший Совет Магов временно закрыл доступ к порталу. Древние свитки и базы данных обновляются перед глобальным релизом на Android & iOS.
-        </p>
-
+        <p class="text-gray-400 text-sm md:text-base max-w-md mb-8 leading-relaxed">Высший Совет Магов временно закрыл доступ к порталу. Древние свитки и базы данных обновляются перед глобальным релизом на Android & iOS.</p>
         <div class="w-full max-w-sm bg-[#12121A] p-6 rounded-2xl border border-gray-800 border-neon">
             <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-2">Статус Разработки</span>
             <div class="text-xl font-bold neon-green animate-bounce">Сборка ЭТАЛОНА: 100%</div>
         </div>
     </main>
 
-    <!-- СКРЫТЫЙ МИРОВОЙ ПОРТАЛ (ОТКРЫВАЕТСЯ ТОЛЬКО НАМ ДЛЯ ТЕСТОВ) -->
-    <main id="portal-container" class="hidden flex-col items-center max-w-4xl mx-auto w-full flex-grow pt-8 transition-all duration-500">
+    <!-- СКРЫТЫЙ МИРОВОЙ ПОРТАЛ (ИСПРАВЛЕНО: Теперь намертво скрыт через жесткий стиль style="display: none;") -->
+    <main id="portal-container" style="display: none;" class="flex-col items-center max-w-4xl mx-auto w-full flex-grow pt-8">
         <div class="flex justify-between items-center w-full border-b border-gray-800 pb-4 mb-8">
             <h2 class="text-2xl font-black tracking-widest neon-cyan">🔥 DEVELOPER CONSOLE</h2>
             <button onclick="lockPortal()" class="text-xs bg-red-900/40 text-red-400 border border-red-800 px-3 py-1 rounded-lg hover:bg-red-900 transition">ЗАКРЫТЬ ПОРТАЛ</button>
         </div>
-
-        <!-- Секция: Глобальная Таблица Задротов -->
         <section class="w-full bg-[#12121A] p-6 rounded-2xl border border-gray-800 mb-8">
             <h3 class="text-lg font-bold mb-4 flex items-center gap-2 text-white">🏆 ТОП-100 МАГОВ МИРА <span class="text-xs bg-green-900 text-green-400 px-2 py-0.5 rounded font-mono">Live</span></h3>
             <div class="overflow-x-auto">
@@ -67,61 +43,44 @@
                         </tr>
                     </thead>
                     <tbody id="leaderboard-body" class="text-sm font-mono">
-                        <!-- Сюда JavaScript будет динамически выгружать данные задротов из базы -->
-                        <tr class="border-b border-gray-900 text-gray-400">
-                            <td class="py-3 px-4 neon-green font-bold">#1</td>
-                            <td class="py-3 px-4 text-white font-bold">★Mage_Infinix★</td>
-                            <td class="py-3 px-4 text-right neon-cyan font-bold">9,450</td>
-                        </tr>
-                        <tr class="border-b border-gray-900 text-gray-400">
-                            <td class="py-3 px-4 text-gray-500">#2</td>
-                            <td class="py-3 px-4">задрот_99</td>
-                            <td class="py-3 px-4 text-right neon-cyan">5,120</td>
-                        </tr>
-                        <tr class="text-gray-600">
-                            <td colspan="3" class="text-center py-4 text-xs italic">База данных пуста. Ожидание новых рекордов из приложения...</td>
-                        </tr>
+                        <tr class="border-b border-gray-900 text-gray-400"><td class="py-3 px-4 neon-green font-bold">#1</td><td class="py-3 px-4 text-white font-bold">★Mage_Infinix★</td><td class="py-3 px-4 text-right neon-cyan font-bold">9,450</td></tr>
+                        <tr class="border-b border-gray-900 text-gray-400"><td class="py-3 px-4 text-gray-500">#2</td><td class="py-3 px-4">задрот_99</td><td class="py-3 px-4 text-right neon-cyan">5,120</td></tr>
+                        <tr class="text-gray-600"><td colspan="3" class="text-center py-4 text-xs italic">База данных пуста. Ожидание новых рекордов из приложения...</td></tr>
                     </tbody>
                 </table>
             </div>
         </section>
     </main>
 
-    <!-- СИСТЕМНЫЙ ПОДВАЛ -->
     <footer class="w-full text-center border-t border-gray-900 pt-4 mt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-600 gap-2">
         <div>© 2026 S-production. Все права защищены магией.</div>
-        <div class="flex gap-4">
-            <a href="privacy.html" class="hover:underline hover:text-gray-400">Privacy Policy</a>
-            <a href="manual.html" class="hover:underline hover:text-gray-400">User Manual</a>
-        </div>
+        <div class="flex gap-4"><a href="privacy.html" class="hover:underline hover:text-gray-400">Privacy Policy</a><a href="manual.html" class="hover:underline hover:text-gray-400">User Manual</a></div>
     </footer>
 
-    <!-- ЛОГИКА СКРЫТНОГО ОБХОДА И УПРАВЛЕНИЯ -->
     <script>
+        const teaser = document.getElementById("teaser-container");
+        const portal = document.getElementById("portal-container");
+
         function openAdminBypass() {
-        const pass = prompt("Введите секретный пароль Создателя для входа в портал:");
-        if (pass === "traveler") { // Каноничный пароль по нашей Стене "i am a tired traveler"
-        document.getElementById("teaser-container").classList.add("hidden");
-        document.getElementById("portal-container").classList.remove("hidden");
-        document.getElementById("portal-container").classList.add("flex");
-        localStorage.setItem("magic_admin_session", "active");
-        } else if (pass !== null) {
-        alert("Доступ отклонён. Совет Магов следит за тобой.");
-        }
+            const pass = prompt("Введите секретный пароль Создателя для входа в портал:");
+            if (pass === "traveler") {
+                teaser.style.display = "none";
+                portal.style.display = "flex";
+                localStorage.setItem("magic_admin_session", "active");
+            } else if (pass !== null) {
+                alert("Доступ отклонён. Совет Магов следит за тобой.");
+            }
         }
 
         function lockPortal() {
-        localStorage.removeItem("magic_admin_session");
-        document.getElementById("portal-container").classList.add("hidden");
-        document.getElementById("portal-container").classList.remove("flex");
-        document.getElementById("teaser-container").classList.remove("hidden");
+            localStorage.removeItem("magic_admin_session");
+            portal.style.display = "none";
+            teaser.style.display = "flex";
         }
 
-        // Проверяем сессию при обновлении страницы
         if (localStorage.getItem("magic_admin_session") === "active") {
-        document.getElementById("teaser-container").classList.add("hidden");
-        document.getElementById("portal-container").classList.remove("hidden");
-        document.getElementById("portal-container").classList.add("flex");
+            teaser.style.display = "none";
+            portal.style.display = "flex";
         }
     </script>
 </body>
