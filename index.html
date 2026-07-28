@@ -1,39 +1,72 @@
 <!DOCTYPE html>
-<html lang="en"> <!-- ИСПРАВЛЕНО: Язык изменён на английский -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google" content="notranslate"> <!-- ИСПРАВЛЕНО: Запрет автоперевода для Chrome -->
+    <meta name="google" content="notranslate">
     <title>MyMagic 🔮 Official Magic Portal</title>
     <script src="https://tailwindcss.com"></script>
     <style>
-        body { 
-            background-color: #0A0A0F; 
-            color: #E5E5E5; 
-            font-family: system-ui, -apple-system, sans-serif; 
+        body {
+            background-color: #0A0A0F;
+            color: #E5E5E5;
+            font-family: system-ui, -apple-system, sans-serif;
         }
-        .neon-green { 
-            color: #00FF66; 
-            text-shadow: 0 0 10px rgba(0,255,102,0.4); 
+        .neon-green {
+            color: #00FF66;
+            text-shadow: 0 0 10px rgba(0,255,102,0.4);
         }
-        .neon-cyan { 
-            color: #00FFFF; 
-            text-shadow: 0 0 10px rgba(0,255,255,0.4); 
+        .neon-cyan {
+            color: #00FFFF;
+            text-shadow: 0 0 10px rgba(0,255,255,0.4);
         }
-        .border-neon { 
-            border-color: rgba(0,255,102,0.2); 
-            box-shadow: 0 0 15px rgba(0,255,102,0.1); 
+        .border-neon {
+            border-color: rgba(0,255,102,0.2);
+            box-shadow: 0 0 15px rgba(0,255,102,0.1);
+        }
+        /* Скрываем системные элементы панели Google Translate */
+        .skiptranslate, .goog-te-banner-frame {
+            display: none !important;
+        }
+        body {
+            top: 0px !important;
         }
     </style>
+
+    <!-- Скрипт-перехватчик языка из приложения -->
+    <script>
+        function getQueryParam(param) {
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        var userLang = getQueryParam('lang');
+        if (userLang) {
+            if (userLang === 'zh') userLang = 'zh-CN';
+            if (userLang === 'zh_tw') userLang = 'zh-TW';
+            
+            document.cookie = "googtrans=/en/" + userLang + "; path=/; domain=." + location.hostname;
+            document.cookie = "googtrans=/en/" + userLang + "; path=/;";
+        }
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script src="https://google.com"></script>
 </head>
 <body class="flex flex-col min-h-screen justify-between p-6 overflow-x-hidden">
 
+    <div id="google_translate_element" style="display:none;"></div>
+
     <!-- ТАИНСТВЕННАЯ ЗАГЛУШКА ДЛЯ ОБЩЕСТВЕННОСТИ -->
     <main id="teaser-container" class="flex flex-col items-center justify-center flex-grow text-center px-4">
-        <div onclick="openAdminBypass()" class="cursor-pointer select-none text-6xl md:text-8xl mb-6 animate-pulse filter drop-shadow-[0_0_20px_rgba(0,255,255,0.3)]">🔮</div>
+        <div Oskar onclick="openAdminBypass()" class="cursor-pointer select-none text-6xl md:text-8xl mb-6 animate-pulse filter drop-shadow-[0_0_20px_rgba(0,255,255,0.3)]">🔮</div>
         <h1 class="text-3xl md:text-5xl font-black tracking-wider mb-4 neon-cyan">MY MAGIC PORTAL</h1>
         <p class="text-gray-400 text-sm md:text-base max-w-md mb-8 leading-relaxed">The High Council of Mages has temporarily restricted access to the portal. Ancient scrolls and databases are being synchronized prior to the global release on Android & iOS.</p>
-        
         <div class="w-full max-w-sm bg-[#12121A] p-6 rounded-2xl border border-gray-800 border-neon">
             <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-2">Status:</span>
             <div class="text-xl font-bold neon-green animate-bounce">In Development.</div>
@@ -46,7 +79,6 @@
             <h2 class="text-2xl font-black tracking-widest neon-cyan">🔥 DEVELOPER CONSOLE</h2>
             <button onclick="lockPortal()" class="text-xs bg-red-900/40 text-red-400 border border-red-800 px-3 py-1 rounded-lg hover:bg-red-900 transition">CLOSE PORTAL</button>
         </div>
-        
         <section class="w-full bg-[#12121A] p-6 rounded-2xl border border-gray-800 mb-8">
             <h3 class="text-lg font-bold mb-4 flex items-center gap-2 text-white">🏆 TOP 100 MAGES <span class="text-xs bg-green-900 text-green-400 px-2 py-0.5 rounded font-mono">Live</span></h3>
             <div class="overflow-x-auto">
@@ -76,17 +108,18 @@
     <!-- ПОДВАЛ (ФУТЕР) -->
     <footer class="w-full text-center border-t border-gray-900 pt-4 mt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-600 gap-2">
         <div>© 2026 S PRODUCTION, IE. All rights reserved.</div>
+        <!-- ИСПРАВЛЕНО: Ссылки ведут на наши реальные новые файлы legal.html и instruction.html -->
         <div class="flex gap-4">
-            <a href="privacy.html" class="hover:underline hover:text-gray-400">Privacy Policy</a>
+            <a href="legal.html" class="hover:underline hover:text-gray-400">Privacy Policy & Terms</a>
             <span class="text-gray-800">•</span>
-            <a href="manual.html" class="hover:underline hover:text-gray-400">User Manual</a>
+            <a href="instruction.html" class="hover:underline hover:text-gray-400">User Manual</a>
         </div>
     </footer>
 
     <script>
         const teaser = document.getElementById("teaser-container");
         const portal = document.getElementById("portal-container");
-        
+
         function openAdminBypass() {
             const pass = prompt("Enter Creator Secret Password:");
             if (pass === "tired traveler") {
@@ -96,7 +129,7 @@
                 alert("Access denied. The Council of Mages is watching you.");
             }
         }
-        
+
         function lockPortal() {
             portal.setAttribute("hidden", "true");
             teaser.removeAttribute("hidden");
