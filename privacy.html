@@ -3,63 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyMagic 🔮 Portal Restriction</title>
+    <meta name="google" content="notranslate">
+    <title>World of Magic — Legal Documentation</title>
     <script src="https://tailwindcss.com"></script>
-    <style>body{background-color:#0A0A0F;color:#E5E5E5;font-family:system-ui,-apple-system,sans-serif;}</style>
+    <style>
+        body {
+            background-color: #0A0A0F;
+            color: #E5E5E5;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        .neon-green {
+            color: #00FF66;
+            text-shadow: 0 0 10px rgba(0,255,102,0.4);
+        }
+        .neon-cyan {
+            color: #00FFFF;
+            text-shadow: 0 0 10px rgba(0,255,255,0.4);
+        }
+        .border-neon {
+            border-color: rgba(0,255,102,0.2);
+            box-shadow: 0 0 15px rgba(0,255,102,0.1);
+        }
+    </style>
 </head>
-<body class="flex flex-col min-h-screen justify-between p-6 text-center">
+<body class="flex flex-col min-h-screen justify-between p-6">
 
-    <!-- ЗАГЛУШКА ДЛЯ ЧУЖИХ ОЧЕЙ -->
-    <main id="lock-screen" class="flex flex-col items-center justify-center flex-grow px-4">
-        <div class="text-6xl mb-4 animate-pulse">🔒</div>
-        <h1 class="text-2xl font-black tracking-wider text-red-500 uppercase">ACCESS DENIED</h1>
-        <p class="text-gray-500 text-xs max-w-sm mt-2">This legal documentation is temporarily encrypted. Access will be fully restored upon the official application launch.</p>
-    </main>
-
-    <!-- НАСТОЯЩАЯ ПОЛИТИКА (ОТКРОЕТСЯ ТОЛЬКО ПО КЛЮЧУ) -->
-    <main id="content-screen" style="display: none;" class="max-w-3xl mx-auto text-left p-2 md:p-6 leading-relaxed">
+    <!-- ГЛАВНЫЙ ЮРИДИЧЕСКИЙ МАНУАЛ -->
+    <main class="max-w-3xl mx-auto text-left p-2 md:p-6 leading-relaxed flex-grow w-full">
         <a href="index.html" class="text-xs text-cyan-400 hover:underline block mb-6">← Back to Portal</a>
-        <h1 class="text-3xl font-black text-cyan-400 tracking-wide mb-2">PRIVACY POLICY</h1>
-        <p class="text-xs text-gray-500 uppercase tracking-widest mb-8">Last Updated: June 2026</p>
         
+        <h1 class="text-3xl font-black text-cyan-400 tracking-wide mb-2">LEGAL AGREEMENTS</h1>
+        <p class="text-xs text-gray-500 uppercase tracking-widest mb-8">Last Updated: July 2026</p>
+
         <div class="space-y-6 text-sm text-gray-300">
-            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800">
-                <h2 class="text-white font-bold text-base mb-2">1. 100% Offline Privacy Commitment</h2>
-                <p>S-production built the MyMagic app as a Commercial app. This Service is provided by S-production at no cost and is intended for use as is. This application operates entirely offline and autonomously on your mobile device. We do not host any external user accounts, cloud databases, or remote tracking servers for personal information.</p>
+            
+            <!-- РАЗДЕЛ 1: ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ -->
+            <h2 class="text-xl font-black text-cyan-400 uppercase tracking-wider mt-8">1. Privacy Policy</h2>
+            
+            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
+                <h3 class="text-white font-bold text-base mb-2">1.1. 100% Offline Privacy Commitment</h3>
+                <p>S PRODUCTION built the MyMagic app as a Commercial app. This Service is provided by S PRODUCTION at no cost and is intended for use as is. This application operates entirely offline and autonomously on your mobile device. We do not host any external user accounts, cloud databases, or remote tracking servers for personal information.</p>
             </section>
-            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800">
-                <h2 class="text-white font-bold text-base mb-2">2. Microphone Permission (Audio Recording)</h2>
+
+            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
+                <h3 class="text-white font-bold text-base mb-2">1.2. Microphone Permission (Audio Recording)</h3>
                 <p>The application requires temporary access to your device's microphone via the <code class="text-green-400 bg-black/40 px-1.5 py-0.5 rounded font-mono">RECORD_AUDIO</code> permission solely for the local speech recognition engine (Vosk) to detect verbal magic commands and secret unlock phrases. All voice processing is handled inside your RAM locally. Audio streams are never recorded, never stored on the physical drive, and are never transmitted over the internet.</p>
             </section>
-            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800">
-                <h2 class="text-white font-bold text-base mb-2">3. Device Storage Access</h2>
+
+            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
+                <h3 class="text-white font-bold text-base mb-2">1.3. Device Storage Access</h3>
                 <p>Storage read permissions are utilized exclusively via the standard Android MediaStore API to safely scan and copy custom .mp4 or .mp3 media packages placed by the user inside the local "Download" directory into the app's isolated private sandbox directory. No other internal folders are accessed or modified.</p>
             </section>
-            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800">
-                <h2 class="text-white font-bold text-base mb-2">4. Children's Privacy (Age Restriction)</h2>
-                <p>These Services do not address anyone under the age of 13. By accepting the in-app legal disclaimer, users officially confirm they are at least 13 years old. We do not knowingly collect personally identifiable information from anyone. Since the software does not transmit data, a child's privacy is technically protected by the architecture itself.</p>
+
+            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
+                <h3 class="text-white font-bold text-base mb-2">1.4. Children's Privacy (Age Restriction)</h3>
+                <!-- ИСПРАВЛЕНО НА ДЕЛЕ: child's заменено на user's по твоему ТЗ -->
+                <p>These Services do not address anyone under the age of 13. By accepting the in-app legal disclaimer, users officially confirm they are at least 13 years old. We do not knowingly collect personally identifiable information from anyone. Since the software does not transmit data, a user's privacy is technically protected by the architecture itself.</p>
             </section>
-            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800">
-                <h2 class="text-white font-bold text-base mb-2">5. Changes to This Privacy Policy</h2>
-                <p>We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+
+            <!-- РАЗДЕЛ 2: ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ (ToS) -->
+            <h2 class="text-xl font-black text-cyan-400 uppercase tracking-wider mt-8">2. Terms of Service (ToS)</h2>
+
+            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
+                <h3 class="text-white font-bold text-base mb-2">2.1. Disclaimer of Warranties & Liability</h3>
+                <p>The application is provided on an "AS IS" and "AS AVAILABLE" basis without any warranties of any kind. S PRODUCTION explicitly disclaims all liability for real-world safety issues, personal injuries, accidents, or hardware complications (including, but not limited to, device flashlight degradation, camera hardware fatigue, or display burn-in) arising from the application's operation or user negligence.</p>
             </section>
-            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800">
-                <h2 class="text-white font-bold text-base mb-2">6. Contact Us</h2>
-                <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact the High Council of S-production via our developer resources.</p>
+
+            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
+                <h3 class="text-white font-bold text-base mb-2">2.2. User-Generated & Custom Content</h3>
+                <p>Users are solely and fully responsible for any multimedia files (.mp4 and .mp3) they manually place inside the local directory (Download/MyMagicMedia). S PRODUCTION does not host, monitor, distribute, or assume any liability for user-imported assets or potential copyright infringements caused by custom user files.</p>
             </section>
+
+            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
+                <h3 class="text-white font-bold text-base mb-2">2.3. Data Synchronization Guidelines</h3>
+                <p>To prevent data loss upon application reinstallation or device replacement, your advertising points balance and unlocked slot statuses are synchronized via Google Play Games Services. This process is securely handled by Google infrastructure using non-identifiable gamer credentials, completely under Google's privacy guidelines.</p>
+            </section>
+
         </div>
     </main>
 
+    <!-- ПОДВАЛ (ФУТЕР) -->
     <footer class="w-full text-center border-t border-gray-900 pt-4 mt-8 text-xs text-gray-600">
-        © 2026 S-production. All rights reserved by magic.
+        © 2026 S PRODUCTION. All rights reserved by magic.
     </footer>
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('key') === 'open' || localStorage.getItem("magic_admin_session") === "active") {
-            document.getElementById("lock-screen").style.display = "none";
-            document.getElementById("content-screen").style.display = "block";
-        }
-    </script>
 </body>
 </html>
