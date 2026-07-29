@@ -67,25 +67,6 @@
             top: 0px !important;
         }
     </style>
-    <script>
-        function getQueryParam(param) {
-        var urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(param);
-        }
-        var userLang = getQueryParam('lang');
-        if (userLang) {
-        if (userLang === 'zh') userLang = 'zh-CN';
-        if (userLang === 'zh_tw') userLang = 'zh-TW';
-        document.cookie = "googtrans=/ru/" + userLang + "; path=/; domain=." + location.hostname;
-        document.cookie = "googtrans=/ru/" + userLang + "; path=/;";
-        }
-        function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-        pageLanguage: 'ru',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        }, 'google_translate_element');
-        }
-    </script>
 </head>
 <body class="p-6 max-w-3xl mx-auto leading-relaxed">
 
