@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google" content="notranslate">
     <title>World of Magic — Legal Documentation</title>
     <script src="https://tailwindcss.com"></script>
     <style>
@@ -24,19 +23,54 @@
             border-color: rgba(0,255,102,0.2);
             box-shadow: 0 0 15px rgba(0,255,102,0.1);
         }
+        /* Стилизуем встроенную панель Google Translate под наш дизайн */
+        .goog-te-gadget-simple {
+            background-color: #12121A !important;
+            border: 1px solid rgba(0, 255, 102, 0.3) !important;
+            padding: 6px 10px !important;
+            border-radius: 8px !important;
+            font-family: inherit !important;
+        }
+        .goog-te-gadget-simple .goog-te-menu-value span {
+            color: #00FF66 !important;
+            font-size: 13px !important;
+            font-weight: bold !important;
+        }
+        .goog-te-gadget-icon {
+            display: none !important;
+        }
     </style>
+    <!-- Подключаем стандартный виджет Google Translate (без автоперехвата ссылок) -->
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script src="https://google.com"></script>
 </head>
 <body class="flex flex-col min-h-screen justify-between p-6">
 
     <main class="max-w-3xl mx-auto text-left p-2 md:p-6 leading-relaxed flex-grow w-full">
-        <a href="index.html" class="text-xs text-cyan-400 hover:underline block mb-6">← Back to Portal</a>
+        
+        <!-- ВЕРХНЯЯ ПАНЕЛЬ: Навигация + Кнопка ручного перевода для людей -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 border-b border-gray-900 pb-4">
+            <a href="index.html" class="text-xs text-cyan-400 hover:underline">← Back to Portal</a>
+            <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-500 uppercase tracking-wider">Translate page:</span>
+                <!-- Сюда Гугл сам вставит аккуратную кнопку выбора языка -->
+                <div id="google_translate_element"></div>
+            </div>
+        </div>
         
         <h1 class="text-3xl font-black text-cyan-400 tracking-wide mb-2">LEGAL AGREEMENTS</h1>
         <p class="text-xs text-gray-500 uppercase tracking-widest mb-8">Last Updated: July 2026</p>
 
         <div class="space-y-6 text-sm text-gray-300">
             
-            <!-- РАЗДЕЛ 1: ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ (ДОБАВЛЕН ЯКОРЬ id="privacy") -->
+            <!-- РАЗДЕЛ 1: ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ -->
             <h2 id="privacy" class="text-xl font-black text-cyan-400 uppercase tracking-wider mt-8">1. Privacy Policy</h2>
             
             <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
@@ -59,7 +93,7 @@
                 <p>These Services do not address anyone under the age of 13. By accepting the in-app legal disclaimer, users officially confirm they are at least 13 years old. We do not knowingly collect personally identifiable information from anyone. Since the software does not transmit data, a user's privacy is technically protected by the architecture itself.</p>
             </section>
 
-            <!-- РАЗДЕЛ 2: ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ (ДОБАВЛЕН ЯКОРЬ id="tos") -->
+            <!-- РАЗДЕЛ 2: ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ (ToS) -->
             <h2 id="tos" class="text-xl font-black text-cyan-400 uppercase tracking-wider mt-8">2. Terms of Service (ToS)</h2>
 
             <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
@@ -80,8 +114,9 @@
         </div>
     </main>
 
+    <!-- ПОДВАЛ С ОФИЦИАЛЬНОЙ ПОДПИСЬЮ -->
     <footer class="w-full text-center border-t border-gray-900 pt-4 mt-8 text-xs text-gray-600">
-        © 2026 S PRODUCTION. All rights reserved by magic.
+        © 2026 S PRODUCTION. All rights reserved.
     </footer>
 
 </body>
