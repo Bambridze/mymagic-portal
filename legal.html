@@ -3,123 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World of Magic — Legal Documentation</title>
-    <script src="https://tailwindcss.com"></script>
+    <title>MyMagic 🔮 Legal Documentation</title>
     <style>
         body {
-            background-color: #0A0A0F;
-            color: #E5E5E5;
-            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 24px;
+            margin: 0;
         }
-        .neon-green {
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px solid #00FF66;
+            background-color: rgba(0, 255, 102, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        h1, h2 {
             color: #00FF66;
-            text-shadow: 0 0 10px rgba(0,255,102,0.4);
         }
-        .neon-cyan {
-            color: #00FFFF;
-            text-shadow: 0 0 10px rgba(0,255,255,0.4);
+        .legal-section {
+            margin-bottom: 40px;
+            padding: 15px;
+            border-bottom: 1.dp solid rgba(0, 255, 102, 0.2);
         }
-        .border-neon {
-            border-color: rgba(0,255,102,0.2);
-            box-shadow: 0 0 15px rgba(0,255,102,0.1);
-        }
-        /* Стилизуем встроенную панель Google Translate под наш дизайн */
-        .goog-te-gadget-simple {
-            background-color: #12121A !important;
-            border: 1px solid rgba(0, 255, 102, 0.3) !important;
-            padding: 6px 10px !important;
-            border-radius: 8px !important;
-            font-family: inherit !important;
-        }
-        .goog-te-gadget-simple .goog-te-menu-value span {
-            color: #00FF66 !important;
-            font-size: 13px !important;
-            font-weight: bold !important;
-        }
-        .goog-te-gadget-icon {
+        /* Скрываем элементы управления Google Translate для нативного вида */
+        .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
             display: none !important;
         }
-    </style>
-    <!-- Подключаем стандартный виджет Google Translate (без автоперехвата ссылок) -->
-    <script>
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
+        body {
+            top: 0px !important;
         }
-    </script>
-    <script src="https://google.com"></script>
+        #google_translate_element {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
-<body class="flex flex-col min-h-screen justify-between p-6">
+<body>
 
-    <main class="max-w-3xl mx-auto text-left p-2 md:p-6 leading-relaxed flex-grow w-full">
-        
-        <!-- ВЕРХНЯЯ ПАНЕЛЬ: Навигация + Кнопка ручного перевода для людей -->
-        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 border-b border-gray-900 pb-4">
-            <a href="index.html" class="text-xs text-cyan-400 hover:underline">← Back to Portal</a>
-            <div class="flex items-center gap-2">
-                <span class="text-xs text-gray-500 uppercase tracking-wider">Translate page:</span>
-                <!-- Сюда Гугл сам вставит аккуратную кнопку выбора языка -->
-                <div id="google_translate_element"></div>
-            </div>
-        </div>
-        
-        <h1 class="text-3xl font-black text-cyan-400 tracking-wide mb-2">LEGAL AGREEMENTS</h1>
-        <p class="text-xs text-gray-500 uppercase tracking-widest mb-8">Last Updated: July 2026</p>
+<div class="container">
+    <div id="google_translate_element"></div>
 
-        <div class="space-y-6 text-sm text-gray-300">
-            
-            <!-- РАЗДЕЛ 1: ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ -->
-            <h2 id="privacy" class="text-xl font-black text-cyan-400 uppercase tracking-wider mt-8">1. Privacy Policy</h2>
-            
-            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
-                <h3 class="text-white font-bold text-base mb-2">1.1. 100% Offline Privacy Commitment</h3>
-                <p>S PRODUCTION built the MyMagic app as a Commercial app. This Service is provided by S PRODUCTION at no cost and is intended for use as is. This application operates entirely offline and autonomously on your mobile device. We do not host any external user accounts, cloud databases, or remote tracking servers for personal information.</p>
-            </section>
+    <h1>LEGAL AGREEMENTS</h1>
 
-            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
-                <h3 class="text-white font-bold text-base mb-2">1.2. Microphone Permission (Audio Recording)</h3>
-                <p>The application requires temporary access to your device's microphone via the <code class="text-green-400 bg-black/40 px-1.5 py-0.5 rounded font-mono">RECORD_AUDIO</code> permission solely for the local speech recognition engine (Vosk) to detect verbal magic commands and secret unlock phrases. All voice processing is handled inside your RAM locally. Audio streams are never recorded, never stored on the physical drive, and are never transmitted over the internet.</p>
-            </section>
+    <!-- Блок Условий Использования (ToS) -->
+    <div id="tos" class="legal-section">
+        <h2>1. Terms of Service (ToS)</h2>
+        <p>Добро пожаловать... Здесь идет твой текст условий использования на русском языке.</p>
+    </div>
 
-            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
-                <h3 class="text-white font-bold text-base mb-2">1.3. Device Storage Access</h3>
-                <p>Storage read permissions are utilized exclusively via the standard Android MediaStore API to safely scan and copy custom .mp4 or .mp3 media packages placed by the user inside the local "Download" directory into the app's isolated private sandbox directory. No other internal folders are accessed or modified.</p>
-            </section>
+    <!-- Блок Политики Конфиденциальности (Privacy) -->
+    <div id="privacy" class="legal-section">
+        <h2>2. Privacy Policy</h2>
+        <p>Мы заботимся о вашей конфиденциальности... Здесь идет твой текст политики на русском языке.</p>
+    </div>
+</div>
 
-            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
-                <h3 class="text-white font-bold text-base mb-2">1.4. Children's Privacy (Age Restriction)</h3>
-                <p>These Services do not address anyone under the age of 13. By accepting the in-app legal disclaimer, users officially confirm they are at least 13 years old. We do not knowingly collect personally identifiable information from anyone. Since the software does not transmit data, a user's privacy is technically protected by the architecture itself.</p>
-            </section>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'ru', // Твой исходный текст на сайте
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
 
-            <!-- РАЗДЕЛ 2: ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ (ToS) -->
-            <h2 id="tos" class="text-xl font-black text-cyan-400 uppercase tracking-wider mt-8">2. Terms of Service (ToS)</h2>
+        setTimeout(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang');
 
-            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
-                <h3 class="text-white font-bold text-base mb-2">2.1. Disclaimer of Warranties & Liability</h3>
-                <p>The application is provided on an "AS IS" and "AS AVAILABLE" basis without any warranties of any kind. S PRODUCTION explicitly disclaims all liability for real-world safety issues, personal injuries, accidents, or hardware complications (including, but not limited to, device flashlight degradation, camera hardware fatigue, or display burn-in) arising from the application's operation or user negligence.</p>
-            </section>
+            if (lang && lang !== 'ru') {
+                const selectEl = document.querySelector('.goog-te-combo');
+                if (selectEl) {
+                    selectEl.value = lang;
+                    selectEl.dispatchEvent(new Event('change'));
 
-            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
-                <h3 class="text-white font-bold text-base mb-2">2.2. User-Generated & Custom Content</h3>
-                <p>Users are solely and fully responsible for any multimedia files (.mp4 and .mp3) they manually place inside the local directory (Download/MyMagicMedia). S PRODUCTION does not host, monitor, distribute, or assume any liability for user-imported assets or potential copyright infringements caused by custom user files.</p>
-            </section>
+                    // Ждем секунду, пока Гугл переведет, и скроллим к нужному якорю (#tos или #privacy)
+                    setTimeout(function() {
+                        const hash = window.location.hash;
+                        if (hash) {
+                            const targetEl = document.querySelector(hash);
+                            if (targetEl) {
+                                targetEl.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }
+                    }, 1000);
+                }
+            }
+        }, 1000);
+    }
+</script>
 
-             <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
-                <h3 class="text-white font-bold text-base mb-2">2.3. In-App Purchases, Advertising Points & Premium Version</h3>
-                <p>The application offers two distinct methods to unlock advanced multimedia customization options: (1) <strong>The Premium Version</strong>, which is a one-time digital purchase processed securely via the official <strong>Google Play Billing</strong> infrastructure to permanently remove all customization restrictions; and (2) <strong>Advertising Points (ad-points)</strong>, an alternative free method allowing users to temporarily unlock individual slots by voluntarily viewing Rewarded Advertisements.</p>
-                <p>All financial transactions, payments, refunds, and advertisement delivery are exclusively handled by Google LLC and its third-party advertising networks. S PRODUCTION does not collect, process, or store any billing details, credit card numbers, or financial data, and explicitly disclaims all liability for transaction disputes arising from Google Play platform operations.</p>
-            </section>
-
-
-        </div>
-    </main>
-
-    <!-- ПОДВАЛ С ОФИЦИАЛЬНОЙ ПОДПИСЬЮ -->
-    <footer class="w-full text-center border-t border-gray-900 pt-4 mt-8 text-xs text-gray-600">
-        © 2026 S PRODUCTION. All rights reserved.
-    </footer>
-
+<script type="text/javascript" src="//://google.com"></script>
 </body>
 </html>
