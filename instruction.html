@@ -6,29 +6,42 @@
     <meta name="google" content="notranslate">
     <title>World of Magic — Инструкция</title>
         <!-- НА ДЕЛЕ: Железный автоперевод по маркеру из приложения! -->
-     <script>
-        function getQueryParam(param) {
-            var urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
+    <div id="google_translate_element" style="position:absolute; opacity:0; pointer-events:none;"></div>
 
-        var userLang = getQueryParam('lang');
-        if (userLang) {
-            if (userLang === 'zh') userLang = 'zh-CN';
-            if (userLang === 'zh_tw') userLang = 'zh-TW';
-            
-            // Настраиваем куки: говорим Гуглу, что переводим с РУССКОГО на язык приложения
-            document.cookie = "googtrans=/ru/" + userLang + "; path=/; domain=" + location.hostname;
-            document.cookie = "googtrans=/ru/" + userLang + "; path=/;";
-        }
+<!-- 2. ВТОРЫМ ДЕЛОМ: Логика перевода (Мой обновленный скрипт с авто-кликом) -->
+<script>
+function getQueryParam(param) {
+    var urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
 
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'ru',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
-    </script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'ru',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+    }, 'google_translate_element');
+
+    var userLang = getQueryParam('lang');
+    if (userLang) {
+        if (userLang === 'zh') userLang = 'zh-CN';
+        if (userLang === 'zh_tw') userLang = 'zh-TW';
+        
+        var checkSelect = setInterval(function() {
+            var selectEl = document.querySelector('.goog-te-combo');
+            if (selectEl) {
+                clearInterval(checkSelect);
+                selectEl.value = userLang;
+                if (typeof(Event) === 'function') {
+                    selectEl.dispatchEvent(new Event('change', { bubbles: true }));
+                } else {
+                    selectEl.fireEvent('onchange');
+                }
+            }
+        }, 100);
+    }
+}
+</script>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
@@ -59,8 +72,6 @@
     </style>
 </head>
 <body class="p-6 max-w-3xl mx-auto leading-relaxed">
-
-    <div id="google_translate_element" style="position:absolute; opacity:0; pointer-events:none;"></div>
 
     <h1 class="text-3xl md:text-4xl font-black text-center uppercase tracking-wider mb-10 neon-green">Инструкция</h1>
 
