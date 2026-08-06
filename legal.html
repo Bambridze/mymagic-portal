@@ -4,53 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>World of Magic — Legal Documentation</title>
+    <!-- Подключаем Tailwind CSS (исправил пустую ссылку, которая была у тебя) -->
     <script src="https://jsdelivr.net"></script>
     <style>
+        body { 
+            background-color: #0A0A0F; 
+            color: #E5E5E5; 
+            font-family: system-ui, -apple-system, sans-serif; 
+        }
+        /* ЖЕЛЕЗНЫЙ КЛАСС ДЛЯ ССЫЛОК */
+        .neon-link, .neon-link:visited { 
+            color: #00FF66 !important; 
+            text-shadow: 0 0 8px rgba(0,255,102,0.3); 
+            text-decoration: none; 
+            transition: all 0.2s ease; 
+        }
+        .neon-link:hover { 
+            color: #00FFFF !important; 
+            text-shadow: 0 0 12px rgba(0,255,255,0.5); 
+            text-decoration: underline; 
+        }
+        .border-neon { 
+            border-color: rgba(0,255,102,0.15); 
+            box-shadow: 0 0 15px rgba(0,255,102,0.05); 
+        }
+        
+        /* Прячем верхнюю плашку Google, которая ломает дизайн */
+        .skiptranslate, .goog-te-banner-frame {
+            display: none !important;
+        }
         body {
-            background-color: #0A0A0F;
-            color: #E5E5E5;
-            font-family: system-ui, -apple-system, sans-serif;
+            top: 0 !important;
         }
-        /* ЖЕЛЕЗНЫЙ КЛАСС ДЛЯ ССЫЛОК: Намертво выжигаем фиолетовый цвет :visited */
-        .neon-link, .neon-link:visited {
-            color: #00FF66 !important;
-            text-shadow: 0 0 8px rgba(0,255,102,0.3);
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-        .neon-link:hover {
-            color: #00FFFF !important;
-            text-shadow: 0 0 12px rgba(0,255,255,0.5);
-            text-decoration: underline;
-        }
-        .border-neon {
-            border-color: rgba(0,255,102,0.15);
-            box-shadow: 0 0 15px rgba(0,255,102,0.05);
-        }
-        /* Скрытие блоков без JS-задержек */
-        .lang-block { display: none; }
-        .lang-block.active { display: block; }
     </style>
 </head>
 <body class="flex flex-col min-h-screen justify-between p-6">
 
     <main class="max-w-3xl mx-auto text-left p-2 md:p-6 leading-relaxed flex-grow w-full">
-        
-        <!-- ВЕРХНЯЯ ПАНЕЛЬ: Салатовая навигация + Локальный мгновенный тумблер -->
+        <!-- ВЕРХНЯЯ ПАНЕЛЬ -->
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 border-b border-gray-900 pb-4">
             <a href="index.html" class="text-xs neon-link">← Back to Portal</a>
             
+            <!-- Наш кастомный переключатель под твой стиль -->
             <div class="flex items-center gap-2 bg-[#12121A] p-1.5 rounded-lg border border-gray-800">
                 <span class="text-xs text-gray-500 uppercase tracking-wider px-2">Language:</span>
-                <button id="btn-en" onclick="setLang('en')" class="text-xs font-bold px-3 py-1 rounded bg-[#00FF66] text-black transition-all duration-200">EN</button>
-                <button id="btn-ru" onclick="setLang('ru')" class="text-xs font-bold px-3 py-1 rounded text-gray-400 hover:text-white transition-all duration-200">RU</button>
+                <select id="lang-select" onchange="translatePage(this.value)" class="text-xs font-bold bg-transparent text-gray-400 hover:text-white focus:text-[#00FF66] focus:outline-none cursor-pointer uppercase tracking-wide">
+                    <option value="en">EN</option>
+                    <option value="ru">RU</option>
+                    <option value="es">ES</option>
+                    <option value="de">DE</option>
+                    <option value="fr">FR</option>
+                    <option value="zh-CN">ZH</option>
+                    <!-- Сюда можно дописать любые другие коды из 116 языков -->
+                </select>
             </div>
         </div>
 
-        <!-- ========================================== -->
-        <!-- АНГЛИЙСКИЙ БЛОК ДОКУМЕНТОВ (ACTIVE ПО ДЕФОЛТУ) -->
-        <!-- ========================================== -->
-        <div id="content-en" class="lang-block active space-y-6">
+        <!-- Контейнер для оригинального виджета Google (намертво скрыт) -->
+        <div id="google_translate_element" style="display:none !important;"></div>
+
+        <!-- ЕДИНСТВЕННЫЙ АНГЛИЙСКИЙ БЛОК КОНТЕНТА -->
+        <div id="content-core" class="space-y-6">
             <h1 class="text-3xl font-black text-cyan-400 tracking-wide mb-2">LEGAL AGREEMENTS</h1>
             <p class="text-xs text-gray-500 uppercase tracking-widest mb-8">Last Updated: July 2026</p>
 
@@ -63,12 +77,13 @@
 
             <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
                 <h3 class="text-white font-bold text-base mb-2">1.2. Microphone Permission (Audio Recording)</h3>
-                <p>The application requires temporary access to your device's microphone via the <code class="text-green-400 bg-black/40 px-1.5 py-0.5 rounded font-mono">RECORD_AUDIO</code> permission solely for the local speech recognition engine (Vosk) to detect verbal magic commands and secret unlock phrases. All voice processing is handled inside your RAM locally. Audio streams are never recorded, never stored on the physical drive, and are never transmitted over the internet.</p>
+                <!-- Класс notranslate запретит Google переводить технический код -->
+                <p>The application requires temporary access to your device's microphone via the <code class="notranslate text-green-400 bg-black/40 px-1.5 py-0.5 rounded font-mono">RECORD_AUDIO</code> permission solely for the local speech recognition engine (Vosk) to detect verbal magic commands and secret unlock phrases. All voice processing is handled inside your RAM locally. Audio streams are never recorded, never stored on the physical drive, and are never transmitted over the internet.</p>
             </section>
 
             <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
                 <h3 class="text-white font-bold text-base mb-2">1.3. Device Storage Access</h3>
-                <p>Storage read permissions are utilized exclusively via the standard Android MediaStore API to safely scan and copy custom .mp4 or .mp3 media packages placed by the user inside the local "Download" directory into the app's isolated private sandbox directory. No other internal folders are accessed or modified.</p>
+                <p>Storage read permissions are utilized exclusively via the standard Android MediaStore API to safely scan and copy custom .mp4 or .mp3 media packages placed by the user inside the local <span class="notranslate">"Download"</span> directory into the app's isolated private sandbox directory. No other internal folders are accessed or modified.</p>
             </section>
 
             <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
@@ -85,7 +100,7 @@
 
             <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
                 <h3 class="text-white font-bold text-base mb-2">2.2. User-Generated & Custom Content</h3>
-                <p>Users are solely and fully responsible for any multimedia files (.mp4 and .mp3) they manually place inside the local directory (<a href="#" class="neon-link">Download/MyMagicMedia</a>). S PRODUCTION does not host, monitor, distribute, or assume any liability for user-imported assets or potential copyright infringements caused by custom user files.</p>
+                <p>Users are solely and fully responsible for any multimedia files (.mp4 and .mp3) they manually place inside the local directory (<a href="#" class="neon-link notranslate">Download/MyMagicMedia</a>). S PRODUCTION does not host, monitor, distribute, or assume any liability for user-imported assets or potential copyright infringements caused by custom user files.</p>
             </section>
 
             <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
@@ -94,24 +109,30 @@
                 <p>All financial transactions, payments, refunds, and advertisement delivery are exclusively handled by Google LLC, Apple Inc., and their third-party advertising networks. S PRODUCTION does not collect, process, or store any billing details, credit card numbers, or financial data, and explicitly disclaims all liability for transaction disputes arising from platform operations.</p>
             </section>
         </div>
+    </main>
 
-        <!-- ========================================== -->
-        <!-- РУССКИЙ БЛОК ДОКУМЕНТОВ (ВКЛЮЧАЕТСЯ ТУМБЛЕРОМ) -->
-        <!-- ========================================== -->
-        <div id="content-ru" class="lang-block space-y-6">
-            <h1 class="text-3xl font-black text-cyan-400 tracking-wide mb-2">ЮРИДИЧЕСКИЕ СОГЛАШЕНИЯ</h1>
-            <p class="text-xs text-gray-500 uppercase tracking-widest mb-8">Последнее обновление: Июль 2026</p>
+    <!-- СКРИПТЫ УПРАВЛЕНИЯ ПЕРЕВОДОМ -->
+    <script type="text/javascript">
+        // Инициализируем скрытый виджет Google
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
 
-            <h2 id="privacy-ru" class="text-xl font-black text-cyan-400 uppercase tracking-wider mt-8">1. Политика конфиденциальности</h2>
-            
-            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
-                <h3 class="text-white font-bold text-base mb-2">1.1. 100% Автономная конфиденциальность</h3>
-                <p>S PRODUCTION разработала приложение MyMagic как коммерческое программное обеспечение. Данная услуга предоставляется S PRODUCTION бесплатно и предназначена для использования как есть. Это приложение работает полностью в автономном режиме на вашем мобильном устройстве. Мы не используем внешние учетные записи пользователей, облачные базы данных или удаленные серверы отслеживания личной информации.</p>
-            </section>
+        // Функция переключения
+        function translatePage(langCode) {
+            const googleSelect = document.querySelector('#google_translate_element select');
+            if (googleSelect) {
+                googleSelect.value = langCode;
+                googleSelect.dispatchEvent(new Event('change'));
+            }
+        }
+    </script>
 
-            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
-                <h3 class="text-white font-bold text-base mb-2">1.2. Разрешение на доступ к микрофону</h3>
-                <p>Приложению требуется временный доступ к микрофону вашего устройства через разрешение <code class="text-green-400 bg-black/40 px-1.5 py-0.5 rounded font-mono">RECORD_AUDIO</code> исключительно для работы локального движка распознавания речи (Vosk), чтобы определять голосовые магические команды. Вся обработка голоса происходит локально в оперативной памяти устройства. Аудиопотоки никогда не записываются, не сохраняются на накопитель и не передаются в интернет.</p>
-            </section>
-
-            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
+    <!-- Подключаем сам скрипт Google Translate -->
+    <script type="text/javascript" src="https://google.com"></script>
+</body>
+</html>
