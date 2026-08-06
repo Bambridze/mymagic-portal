@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>World of Magic — Legal Documentation</title>
-    <script src="https://tailwindcss.com"></script>
+    <script src="https://jsdelivr.net"></script>
     <style>
         body {
             background-color: #0A0A0F;
@@ -23,7 +23,19 @@
             border-color: rgba(0,255,102,0.2);
             box-shadow: 0 0 15px rgba(0,255,102,0.1);
         }
-        /* Стилизуем встроенную панель Google Translate под наш дизайн */
+        
+        /* ИСПРАВЛЕНО: Жёстко перекрашиваем ВСЕ ссылки в сочный салатовый цвет, убирая фиолетовый */
+        a, a:visited {
+            color: #00FF66 !important;
+            text-shadow: 0 0 8px rgba(0,255,102,0.3);
+            transition: all 0.2s ease;
+        }
+        a:hover {
+            color: #00FFFF !important;
+            text-shadow: 0 0 12px rgba(0,255,255,0.5);
+        }
+
+        /* Стилизуем встроенную панель Google Translate под наш неоновый дизайн */
         .goog-te-gadget-simple {
             background-color: #12121A !important;
             border: 1px solid rgba(0, 255, 102, 0.3) !important;
@@ -40,7 +52,7 @@
             display: none !important;
         }
     </style>
-    <!-- Подключаем стандартный виджет Google Translate (без автоперехвата ссылок) -->
+
     <script>
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
@@ -54,22 +66,20 @@
 <body class="flex flex-col min-h-screen justify-between p-6">
 
     <main class="max-w-3xl mx-auto text-left p-2 md:p-6 leading-relaxed flex-grow w-full">
-        
         <!-- ВЕРХНЯЯ ПАНЕЛЬ: Навигация + Кнопка ручного перевода для людей -->
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 border-b border-gray-900 pb-4">
-            <a href="index.html" class="text-xs text-cyan-400 hover:underline">← Back to Portal</a>
+            <!-- Ссылка СТАЛА САЛАТОВОЙ -->
+            <a href="index.html" class="text-xs hover:underline">← Back to Portal</a>
             <div class="flex items-center gap-2">
                 <span class="text-xs text-gray-500 uppercase tracking-wider">Translate page:</span>
-                <!-- Сюда Гугл сам вставит аккуратную кнопку выбора языка -->
                 <div id="google_translate_element"></div>
             </div>
         </div>
-        
+
         <h1 class="text-3xl font-black text-cyan-400 tracking-wide mb-2">LEGAL AGREEMENTS</h1>
         <p class="text-xs text-gray-500 uppercase tracking-widest mb-8">Last Updated: July 2026</p>
 
         <div class="space-y-6 text-sm text-gray-300">
-            
             <!-- РАЗДЕЛ 1: ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ -->
             <h2 id="privacy" class="text-xl font-black text-cyan-400 uppercase tracking-wider mt-8">1. Privacy Policy</h2>
             
@@ -95,7 +105,7 @@
 
             <!-- РАЗДЕЛ 2: ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ (ToS) -->
             <h2 id="tos" class="text-xl font-black text-cyan-400 uppercase tracking-wider mt-8">2. Terms of Service (ToS)</h2>
-
+            
             <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
                 <h3 class="text-white font-bold text-base mb-2">2.1. Disclaimer of Warranties & Liability</h3>
                 <p>The application is provided on an "AS IS" and "AS AVAILABLE" basis without any warranties of any kind. S PRODUCTION explicitly disclaims all liability for real-world safety issues, personal injuries, accidents, or hardware complications (including, but not limited to, device flashlight degradation, camera hardware fatigue, or display burn-in) arising from the application's operation or user negligence.</p>
@@ -106,13 +116,11 @@
                 <p>Users are solely and fully responsible for any multimedia files (.mp4 and .mp3) they manually place inside the local directory (Download/MyMagicMedia). S PRODUCTION does not host, monitor, distribute, or assume any liability for user-imported assets or potential copyright infringements caused by custom user files.</p>
             </section>
 
-             <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
-                <h3 class="text-white font-bold text-base mb-2">2.3. In-App Purchases, Advertising Points & Premium Version</h3>
-                <p>The application offers two distinct methods to unlock advanced multimedia customization options: (1) <strong>The Premium Version</strong>, which is a one-time digital purchase processed securely via the official <strong>Google Play Billing</strong> infrastructure to permanently remove all customization restrictions; and (2) <strong>Advertising Points (ad-points)</strong>, an alternative free method allowing users to temporarily unlock individual slots by voluntarily viewing Rewarded Advertisements.</p>
-                <p>All financial transactions, payments, refunds, and advertisement delivery are exclusively handled by Google LLC and its third-party advertising networks. S PRODUCTION does not collect, process, or store any billing details, credit card numbers, or financial data, and explicitly disclaims all liability for transaction disputes arising from Google Play platform operations.</p>
+            <section class="bg-[#12121A] p-5 rounded-xl border border-gray-800 border-neon">
+                <h3 class="text-white font-bold text-base mb-2">2.3. In-App Purchases, Energy Balance & Premium Version</h3>
+                <p>The application offers two distinct methods to unlock advanced multimedia customization options: (1) <strong>The Premium Version</strong>, which is a one-time digital purchase processed securely via the official <strong>Google Play Billing / App Store</strong> infrastructure to permanently remove all customization restrictions; and (2) <strong>Magic Energy (⚡️)</strong>, an alternative free method allowing users to unlock individual slots by voluntarily viewing Rewarded Advertisements or purchasing packets of energy.</p>
+                <p>All financial transactions, payments, refunds, and advertisement delivery are exclusively handled by Google LLC, Apple Inc., and their third-party advertising networks. S PRODUCTION does not collect, process, or store any billing details, credit card numbers, or financial data, and explicitly disclaims all liability for transaction disputes arising from platform operations.</p>
             </section>
-
-
         </div>
     </main>
 
