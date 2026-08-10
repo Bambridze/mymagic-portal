@@ -1,139 +1,168 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google" content="notranslate">
-    <title>MyMagic 🔮 Official Magic Portal</title>
-    <script src="https://tailwindcss.com"></script>
-    <style>
-        body {
-            background-color: #0A0A0F;
-            color: #E5E5E5;
-            font-family: system-ui, -apple-system, sans-serif;
-        }
-        .neon-green {
-            color: #00FF66;
-            text-shadow: 0 0 10px rgba(0,255,102,0.4);
-        }
-        .neon-cyan {
-            color: #00FFFF;
-            text-shadow: 0 0 10px rgba(0,255,255,0.4);
-        }
-        .border-neon {
-            border-color: rgba(0,255,102,0.2);
-            box-shadow: 0 0 15px rgba(0,255,102,0.1);
-        }
-        /* Скрываем системные элементы панели Google Translate */
-        .skiptranslate, .goog-te-banner-frame {
-            display: none !important;
-        }
-        body {
-            top: 0px !important;
-        }
-    </style>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>World of Magic — Legal Documentation</title> 
+<style> 
+/* Полностью автономные стили без Tailwind. Никакого ожидания загрузки! */ 
+body { 
+    background-color: #0A0A0F; 
+    color: #E5E5E5; 
+    font-family: system-ui, -apple-system, sans-serif; 
+    margin: 0; 
+    padding: 24px; 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+    box-sizing: border-box; 
+} 
+main { 
+    max-w: 48rem; /* max-w-3xl */ 
+    margin-left: auto; 
+    margin-right: auto; 
+    text-align: left; 
+    line-height: 1.625; 
+    flex-grow: 1; 
+    width: 100%; 
+} 
+.nav-panel { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 24px; 
+    border-bottom: 1px solid #111827; 
+    padding-bottom: 16px; 
+} 
+/* НАМЕРТВО ВЫЖИГАЕМ НЕОНОВЫЙ ЦВЕТ ДЛЯ ССЫЛОК — ОТЛИЧНО ВИДНО НА ЧЕРНОМ */ 
+.neon-link, .neon-link:link, .neon-link:visited { 
+    color: #00FF66 !important; 
+    text-shadow: 0 0 8px rgba(0,255,102,0.3); 
+    text-decoration: none; 
+    font-size: 0.85rem; 
+    font-weight: bold;
+    transition: all 0.2s ease; 
+} 
+.neon-link:hover { 
+    color: #00FFFF !important; 
+    text-shadow: 0 0 12px rgba(0,255,255,0.5); 
+    text-decoration: underline; 
+} 
+h1 { 
+    font-size: 1.875rem; /* text-3xl */ 
+    font-weight: 900; 
+    color: #22d3ee; /* text-cyan-400 */ 
+    letter-spacing: 0.05em; 
+    margin-bottom: 8px; 
+} 
+.updated-text { 
+    font-size: 0.75rem; 
+    color: #6b7280; 
+    text-transform: uppercase; 
+    letter-spacing: 0.1em; 
+    margin-bottom: 32px; 
+} 
+h2 { 
+    font-size: 1.25rem; /* text-xl */ 
+    font-weight: 900; 
+    color: #22d3ee; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em; 
+    margin-top: 32px; 
+    margin-bottom: 16px; 
+} 
+section { 
+    background-color: #12121A; 
+    padding: 20px; 
+    border-radius: 12px; 
+    border: 1px solid rgba(0,255,102,0.15); 
+    box-shadow: 0 0 15px rgba(0,255,102,0.05); 
+    margin-bottom: 16px; 
+} 
+h3 { 
+    color: #ffffff; 
+    font-weight: bold; 
+    font-size: 1rem; 
+    margin-top: 0; 
+    margin-bottom: 8px; 
+} 
+p { 
+    margin-top: 0; 
+    margin-bottom: 12px; 
+    font-size: 0.95rem; 
+} 
+p:last-child { 
+    margin-bottom: 0; 
+} 
+code { 
+    color: #4ade80; 
+    background-color: rgba(0,0,0,0.4); 
+    padding: 2px 6px; 
+    border-radius: 4px; 
+    font-family: monospace; 
+} 
+.translating { 
+    opacity: 0.6; 
+    pointer-events: none; 
+}
+</style> 
+</head> 
+<body> 
+<main id="content-area"> 
+    <!-- ВЕРХНЯЯ ПАНЕЛЬ --> 
+    <div class="nav-panel"> 
+        <a href="index.html" class="neon-link" data-translate="true">← Back to Portal</a> 
+    </div> 
 
-    <!-- Скрипт-перехватчик языка из приложения -->
-    <script>
-        function getQueryParam(param) {
-            var urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
+    <!-- ОСНОВНОЙ КОНТЕНТ --> 
+    <div> 
+        <h1 data-translate="true">LEGAL AGREEMENTS</h1> 
+        <div class="updated-text" data-translate="true">Last Updated: July 2026</div> 
+        
+        <h2 id="privacy-en" data-translate="true">1. Privacy Policy</h2> 
+        <section> 
+            <h3 data-translate="true">1.1. 100% Offline Privacy Commitment</h3> 
+            <p data-translate="true">S PRODUCTION built the MyMagic app as a Commercial app. This Service is provided by S PRODUCTION at no cost and is intended for use as is. This application operates entirely offline and autonomously on your mobile device. We do not host any external user accounts, cloud databases, or remote tracking servers for personal information.</p> 
+        </section> 
+        <section> 
+            <h3 data-translate="true">1.2. Microphone Permission (Audio Recording)</h3> 
+            <p data-translate="true">The application requires temporary access to your device's microphone via the <code>RECORD_AUDIO</code> permission solely for the local speech recognition engine (Vosk) to detect verbal magic commands and secret unlock phrases. All voice processing is handled inside your RAM locally. Audio streams are never recorded, never stored on the physical drive, and are never transmitted over the internet.</p> 
+        </section> 
+        <section> 
+            <h3 data-translate="true">1.3. Device Storage Access</h3> 
+            <p data-translate="true">Storage read permissions are utilized exclusively via the standard Android MediaStore API to safely scan and copy custom .mp4 or .mp3 media packages placed by the user inside the local "Download" directory into the app's isolated private sandbox directory. No other internal folders are accessed or modified.</p> 
+        </section> 
+        <section> 
+            <h3 data-translate="true">1.4. Children's Privacy (Age Restriction)</h3> 
+            <p data-translate="true">These Services do not address anyone under the age of 13. By accepting the in-app legal disclaimer, users officially confirm they are at least 13 years old. We do not knowingly collect personally identifiable information from anyone. Since the software does not transmit data, a user's privacy is technically protected by the architecture itself.</p> 
+        </section> 
 
-        var userLang = getQueryParam('lang');
-        if (userLang) {
-            if (userLang === 'zh') userLang = 'zh-CN';
-            if (userLang === 'zh_tw') userLang = 'zh-TW';
-            
-            document.cookie = "googtrans=/en/" + userLang + "; path=/; domain=." + location.hostname;
-            document.cookie = "googtrans=/en/" + userLang + "; path=/;";
-        }
+        <h2 id="tos-en" data-translate="true">2. Terms of Service (ToS)</h2> 
+        <section> 
+            <h3 data-translate="true">2.1. Disclaimer of Warranties & Liability</h3> 
+            <p data-translate="true">The application is provided on an "AS IS" and "AS AVAILABLE" basis without any warranties of any kind. S PRODUCTION explicitly disclaims all liability for real-world safety issues, personal injuries, accidents, or hardware complications (including, but not limited to, device flashlight degradation, camera hardware fatigue, or display burn-in) arising from the application's operation or user negligence.</p> 
+        </section> 
+        <section> 
+            <h3 data-translate="true">2.2. User-Generated & Custom Content</h3> 
+            <p data-translate="true">Users are solely and fully responsible for any multimedia files (.mp4 and .mp3) they manually place inside the local directory (Download/MyMagicMedia). S PRODUCTION does not host, monitor, distribute, or assume any liability for user-imported assets or potential copyright infringements caused by custom user files.</p> 
+        </section> 
+        <section> 
+            <h3 data-translate="true">2.3. In-App Purchases, Energy Balance & Premium Version</h3> 
+            <p data-translate="true">The application offers two distinct methods to unlock advanced multimedia customization options: (1) <strong>The Premium Version</strong>, which is a one-time digital purchase processed securely via the official <strong>Google Play Billing / App Store</strong> infrastructure to permanently remove all customization restrictions; and (2) <strong>Magic Energy (⚡️)</strong>, an alternative free method allowing users to unlock individual slots by voluntarily viewing Rewarded Advertisements or purchasing packets of energy.</p> 
+            <p data-translate="true">All financial transactions, payments, refunds, and advertisement delivery are exclusively handled by Google LLC, Apple Inc., and their third-party advertising networks. S PRODUCTION does not collect, process, or store any billing details, credit card numbers, or financial data, and explicitly disclaims all liability for transaction disputes arising from platform operations.</p> 
+        </section> 
+    </div> 
+</main>
 
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
-    </script>
-    <script src="https://google.com"></script>
-</head>
-<body class="flex flex-col min-h-screen justify-between p-6 overflow-x-hidden">
+<script>
+function lockPortal() { 
+    portal.setAttribute("hidden", "true"); 
+    teaser.removeAttribute("hidden"); 
+} 
+</script>
 
-    <div id="google_translate_element" style="display:none;"></div>
+<!-- ТАК СКАЗАТЬ, ПОЛОЖНЯК: ПОДКЛЮЧАЕМ НАШ ДИНАМИЧЕСКИЙ ПЕРЕВОДЧИК НА 117 ЯЗЫКОВ -->
+<script src="translator.js"></script>
 
-    <!-- ТАИНСТВЕННАЯ ЗАГЛУШКА ДЛЯ ОБЩЕСТВЕННОСТИ -->
-    <main id="teaser-container" class="flex flex-col items-center justify-center flex-grow text-center px-4">
-        <div Oskar onclick="openAdminBypass()" class="cursor-pointer select-none text-6xl md:text-8xl mb-6 animate-pulse filter drop-shadow-[0_0_20px_rgba(0,255,255,0.3)]">🔮</div>
-        <h1 class="text-3xl md:text-5xl font-black tracking-wider mb-4 neon-cyan">MY MAGIC PORTAL</h1>
-        <p class="text-gray-400 text-sm md:text-base max-w-md mb-8 leading-relaxed">The High Council of Mages has temporarily restricted access to the portal. Ancient scrolls and databases are being synchronized prior to the global release on Android & iOS.</p>
-        <div class="w-full max-w-sm bg-[#12121A] p-6 rounded-2xl border border-gray-800 border-neon">
-            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-2">Status:</span>
-            <div class="text-xl font-bold neon-green animate-bounce">In Development.</div>
-        </div>
-    </main>
-
-    <!-- СКРЫТЫЙ ПОРТАЛ (ЗАПЕРТ НА КЛЮЧ HIDDEN) -->
-    <main id="portal-container" hidden class="flex-col items-center max-w-4xl mx-auto w-full flex-grow pt-8">
-        <div class="flex justify-between items-center w-full border-b border-gray-800 pb-4 mb-8">
-            <h2 class="text-2xl font-black tracking-widest neon-cyan">🔥 DEVELOPER CONSOLE</h2>
-            <button onclick="lockPortal()" class="text-xs bg-red-900/40 text-red-400 border border-red-800 px-3 py-1 rounded-lg hover:bg-red-900 transition">CLOSE PORTAL</button>
-        </div>
-        <section class="w-full bg-[#12121A] p-6 rounded-2xl border border-gray-800 mb-8">
-            <h3 class="text-lg font-bold mb-4 flex items-center gap-2 text-white">🏆 TOP 100 MAGES <span class="text-xs bg-green-900 text-green-400 px-2 py-0.5 rounded font-mono">Live</span></h3>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="border-b border-gray-800 text-gray-500 text-xs uppercase tracking-wider">
-                            <th class="py-3 px-4">Rank</th>
-                            <th class="py-3 px-4">Mage Name</th>
-                            <th class="py-3 px-4 text-right">Energy Points</th>
-                        </tr>
-                    </thead>
-                    <tbody id="leaderboard-body" class="text-sm font-mono">
-                        <tr class="border-b border-gray-900 text-gray-400">
-                            <td class="py-3 px-4 neon-green font-bold">#1</td>
-                            <td class="py-3 px-4 text-white font-bold">★Mage_Infinix★</td>
-                            <td class="py-3 px-4 text-right neon-cyan font-bold">9,450</td>
-                        </tr>
-                        <tr class="text-gray-600">
-                            <td colspan="3" class="text-center py-4 text-xs italic">Database is empty. Waiting for live records from the app...</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </main>
-
-    <!-- ПОДВАЛ (ФУТЕР) -->
-    <footer class="w-full text-center border-t border-gray-900 pt-4 mt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-600 gap-2">
-        <div>© 2026 S PRODUCTION, IE. All rights reserved.</div>
-        <!-- ИСПРАВЛЕНО: Ссылки ведут на наши реальные новые файлы legal.html и instruction.html -->
-        <div class="flex gap-4">
-            <a href="legal.html" class="hover:underline hover:text-gray-400">Privacy Policy & Terms</a>
-            <span class="text-gray-800">•</span>
-            <a href="instruction.html" class="hover:underline hover:text-gray-400">User Manual</a>
-        </div>
-    </footer>
-
-    <script>
-        const teaser = document.getElementById("teaser-container");
-        const portal = document.getElementById("portal-container");
-
-        function openAdminBypass() {
-            const pass = prompt("Enter Creator Secret Password:");
-            if (pass === "tired traveler") {
-                teaser.setAttribute("hidden", "true");
-                portal.removeAttribute("hidden");
-            } else if (pass !== null) {
-                alert("Access denied. The Council of Mages is watching you.");
-            }
-        }
-
-        function lockPortal() {
-            portal.setAttribute("hidden", "true");
-            teaser.removeAttribute("hidden");
-        }
-    </script>
-</body>
+</body> 
 </html>
