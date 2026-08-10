@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>World of Magic — Legal Documentation</title>
-<style>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>World of Magic — Legal Documentation</title> 
+<style> 
+/* Полностью автономные стили без Tailwind. Никакого ожидания загрузки! */ 
 body { 
     background-color: #0A0A0F; 
     color: #E5E5E5; 
@@ -15,16 +16,16 @@ body {
     flex-direction: column; 
     min-height: 100vh; 
     box-sizing: border-box; 
-}
+} 
 main { 
-    max-w: 48rem; 
+    max-w: 48rem; /* max-w-3xl */ 
     margin-left: auto; 
     margin-right: auto; 
     text-align: left; 
     line-height: 1.625; 
     flex-grow: 1; 
     width: 100%; 
-}
+} 
 .nav-panel { 
     display: flex; 
     justify-content: space-between; 
@@ -32,9 +33,8 @@ main {
     margin-bottom: 24px; 
     border-bottom: 1px solid #111827; 
     padding-bottom: 16px; 
-}
-
-/* ИСПРАВЛЕННЫЙ ЦВЕТ ССЫЛОК — ЯРКИЙ НЕОН, ОТЛИЧНО ВИДНО НА ЧЕРНОМ */
+} 
+/* НАМЕРТВО ВЫЖИГАЕМ НЕОНОВЫЙ ЦВЕТ ДЛЯ ССЫЛОК — ОТЛИЧНО ВИДНО НА ЧЕРНОМ */ 
 .neon-link, .neon-link:link, .neon-link:visited { 
     color: #00FF66 !important; 
     text-shadow: 0 0 8px rgba(0,255,102,0.3); 
@@ -42,75 +42,127 @@ main {
     font-size: 0.85rem; 
     font-weight: bold;
     transition: all 0.2s ease; 
-}
+} 
 .neon-link:hover { 
     color: #00FFFF !important; 
     text-shadow: 0 0 12px rgba(0,255,255,0.5); 
     text-decoration: underline; 
+} 
+h1 { 
+    font-size: 1.875rem; /* text-3xl */ 
+    font-weight: 900; 
+    color: #22d3ee; /* text-cyan-400 */ 
+    letter-spacing: 0.05em; 
+    margin-bottom: 8px; 
+} 
+.updated-text { 
+    font-size: 0.75rem; 
+    color: #6b7280; 
+    text-transform: uppercase; 
+    letter-spacing: 0.1em; 
+    margin-bottom: 32px; 
+} 
+h2 { 
+    font-size: 1.25rem; /* text-xl */ 
+    font-weight: 900; 
+    color: #22d3ee; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em; 
+    margin-top: 32px; 
+    margin-bottom: 16px; 
+} 
+section { 
+    background-color: #12121A; 
+    padding: 20px; 
+    border-radius: 12px; 
+    border: 1px solid rgba(0,255,102,0.15); 
+    box-shadow: 0 0 15px rgba(0,255,102,0.05); 
+    margin-bottom: 16px; 
+} 
+h3 { 
+    color: #ffffff; 
+    font-weight: bold; 
+    font-size: 1rem; 
+    margin-top: 0; 
+    margin-bottom: 8px; 
+} 
+p { 
+    margin-top: 0; 
+    margin-bottom: 12px; 
+    font-size: 0.95rem; 
+} 
+p:last-child { 
+    margin-bottom: 0; 
+} 
+code { 
+    color: #4ade80; 
+    background-color: rgba(0,0,0,0.4); 
+    padding: 2px 6px; 
+    border-radius: 4px; 
+    font-family: monospace; 
+} 
+.translating { 
+    opacity: 0.6; 
+    pointer-events: none; 
 }
+</style> 
+</head> 
+<body> 
+<main id="content-area"> 
+    <!-- ВЕРХНЯЯ ПАНЕЛЬ --> 
+    <div class="nav-panel"> 
+        <a href="index.html" class="neon-link" data-translate="true">← Back to Portal</a> 
+    </div> 
 
-h1 { font-size: 1.875rem; font-weight: 900; color: #22d3ee; letter-spacing: 0.05em; margin-bottom: 8px; }
-.updated-text { font-size: 0.75rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 32px; }
-h2 { font-size: 1.25rem; font-weight: 900; color: #22d3ee; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 32px; margin-bottom: 16px; }
-section { background-color: #12121A; padding: 20px; border-radius: 12px; border: 1px solid rgba(0,255,102,0.15); box-shadow: 0 0 15px rgba(0,255,102,0.05); margin-bottom: 16px; }
-h3 { color: #ffffff; font-weight: bold; font-size: 1rem; margin-top: 0; margin-bottom: 8px; }
-p { margin-top: 0; margin-bottom: 12px; font-size: 0.95rem; }
-p:last-child { margin-bottom: 0; }
-code { color: #4ade80; background-color: rgba(0,0,0,0.4); padding: 2px 6px; border-radius: 4px; font-family: monospace; }
-.translating { opacity: 0.5; pointer-events: none; }
-</style>
-</head>
-<body>
-<main id="content-area">
-    <div class="nav-panel">
-        <a href="index.html" class="neon-link" data-translate="true">← Back to Portal</a>
-    </div>
+    <!-- ОСНОВНОЙ КОНТЕНТ --> 
+    <div> 
+        <h1 data-translate="true">LEGAL AGREEMENTS</h1> 
+        <div class="updated-text" data-translate="true">Last Updated: July 2026</div> 
+        
+        <h2 id="privacy-en" data-translate="true">1. Privacy Policy</h2> 
+        <section> 
+            <h3 data-translate="true">1.1. 100% Offline Privacy Commitment</h3> 
+            <p data-translate="true">S PRODUCTION built the MyMagic app as a Commercial app. This Service is provided by S PRODUCTION at no cost and is intended for use as is. This application operates entirely offline and autonomously on your mobile device. We do not host any external user accounts, cloud databases, or remote tracking servers for personal information.</p> 
+        </section> 
+        <section> 
+            <h3 data-translate="true">1.2. Microphone Permission (Audio Recording)</h3> 
+            <p data-translate="true">The application requires temporary access to your device's microphone via the <code>RECORD_AUDIO</code> permission solely for the local speech recognition engine (Vosk) to detect verbal magic commands and secret unlock phrases. All voice processing is handled inside your RAM locally. Audio streams are never recorded, never stored on the physical drive, and are never transmitted over the internet.</p> 
+        </section> 
+        <section> 
+            <h3 data-translate="true">1.3. Device Storage Access</h3> 
+            <p data-translate="true">Storage read permissions are utilized exclusively via the standard Android MediaStore API to safely scan and copy custom .mp4 or .mp3 media packages placed by the user inside the local "Download" directory into the app's isolated private sandbox directory. No other internal folders are accessed or modified.</p> 
+        </section> 
+        <section> 
+            <h3 data-translate="true">1.4. Children's Privacy (Age Restriction)</h3> 
+            <p data-translate="true">These Services do not address anyone under the age of 13. By accepting the in-app legal disclaimer, users officially confirm they are at least 13 years old. We do not knowingly collect personally identifiable information from anyone. Since the software does not transmit data, a user's privacy is technically protected by the architecture itself.</p> 
+        </section> 
 
-    <div>
-        <h1 data-translate="true">LEGAL AGREEMENTS</h1>
-        <div class="updated-text" data-translate="true">Last Updated: July 2026</div>
-        
-        <h2>1. Privacy Policy</h2>
-        <section>
-            <h3 data-translate="true">1.1. 100% Offline Privacy Commitment</h3>
-            <p data-translate="true">S PRODUCTION built the MyMagic app as a Commercial app. This Service is provided by S PRODUCTION at no cost and is intended for use as is. This application operates entirely offline and autonomously on your mobile device. We do not host any external user accounts, cloud databases, or remote tracking servers for personal information.</p>
-        </section>
-        
-        <section>
-            <h3 data-translate="true">1.2. Microphone Permission (Audio Recording)</h3>
-            <p data-translate="true">The application requires temporary access to your device's microphone via the RECORD_AUDIO permission solely for the local speech recognition engine (Vosk) to detect verbal magic commands and secret unlock phrases. All voice processing is handled inside your RAM locally. Audio streams are never recorded, never stored on the physical drive, and are never transmitted over the internet.</p>
-        </section>
-        
-        <section>
-            <h3 data-translate="true">1.3. Device Storage Access</h3>
-            <p data-translate="true">Storage read permissions are utilized exclusively via the standard Android MediaStore API to safely scan and copy custom .mp4 or .mp3 media packages placed by the user inside the local "Download" directory into the app's isolated private sandbox directory. No other internal folders are accessed or modified.</p>
-        </section>
-        
-        <section>
-            <h3 data-translate="true">1.4. Children's Privacy (Age Restriction)</h3>
-            <p data-translate="true">These Services do not address anyone under the age of 13. By accepting the in-app legal disclaimer, users officially confirm they are at least 13 years old. We do not knowingly collect personally identifiable information from anyone. Since the software does not transmit data, a user's privacy is technically protected by the architecture itself.</p>
-        </section>
-
-        <h2>2. Terms of Service (ToS)</h2>
-        <section>
-            <h3 data-translate="true">2.1. Disclaimer of Warranties & Liability</h3>
-            <p data-translate="true">The application is provided on an "AS IS" and "AS AVAILABLE" basis without any warranties of any kind. S PRODUCTION explicitly disclaims all liability for real-world safety issues, personal injuries, accidents, or hardware complications (including, but not limited to, device flashlight degradation, camera hardware fatigue, or display burn-in) arising from the application's operation or user negligence.</p>
-        </section>
-        
-        <section>
-            <h3 data-translate="true">2.2. User-Generated & Custom Content</h3>
-            <p data-translate="true">Users are solely and fully responsible for any multimedia files (.mp4 and .mp3) they manually place inside the local directory (Download/MyMagicMedia). S PRODUCTION does not host, monitor, distribute, or assume any liability for user-imported assets or potential copyright infringements caused by custom user files.</p>
-        </section>
-        
-        <section>
-            <h3 data-translate="true">2.3. In-App Purchases, Energy Balance & Premium Version</h3>
-            <p data-translate="true">The application offers two distinct methods to unlock advanced multimedia customization options: (1) The Premium Version, which is a one-time digital purchase processed securely via the official Google Play Billing / App Store infrastructure to permanently remove all customization restrictions; and (2) Magic Energy (⚡️), an alternative free method allowing users to unlock individual slots by voluntarily viewing Rewarded Advertisements or purchasing packets of energy.</p>
-            <p data-translate="true">All financial transactions, payments, refunds, and advertisement delivery are exclusively handled by Google LLC, Apple Inc., and their third-party advertising networks. S PRODUCTION does not collect, process, or store any billing details, credit card numbers, or financial data, and explicitly disclaims all liability for transaction disputes arising from platform operations.</p>
-        </section>
-    </div>
+        <h2 id="tos-en" data-translate="true">2. Terms of Service (ToS)</h2> 
+        <section> 
+            <h3 data-translate="true">2.1. Disclaimer of Warranties & Liability</h3> 
+            <p data-translate="true">The application is provided on an "AS IS" and "AS AVAILABLE" basis without any warranties of any kind. S PRODUCTION explicitly disclaims all liability for real-world safety issues, personal injuries, accidents, or hardware complications (including, but not limited to, device flashlight degradation, camera hardware fatigue, or display burn-in) arising from the application's operation or user negligence.</p> 
+        </section> 
+        <section> 
+            <h3 data-translate="true">2.2. User-Generated & Custom Content</h3> 
+            <p data-translate="true">Users are solely and fully responsible for any multimedia files (.mp4 and .mp3) they manually place inside the local directory (Download/MyMagicMedia). S PRODUCTION does not host, monitor, distribute, or assume any liability for user-imported assets or potential copyright infringements caused by custom user files.</p> 
+        </section> 
+        <section> 
+            <h3 data-translate="true">2.3. In-App Purchases, Energy Balance & Premium Version</h3> 
+            <p data-translate="true">The application offers two distinct methods to unlock advanced multimedia customization options: (1) <strong>The Premium Version</strong>, which is a one-time digital purchase processed securely via the official <strong>Google Play Billing / App Store</strong> infrastructure to permanently remove all customization restrictions; and (2) <strong>Magic Energy (⚡️)</strong>, an alternative free method allowing users to unlock individual slots by voluntarily viewing Rewarded Advertisements or purchasing packets of energy.</p> 
+            <p data-translate="true">All financial transactions, payments, refunds, and advertisement delivery are exclusively handled by Google LLC, Apple Inc., and their third-party advertising networks. S PRODUCTION does not collect, process, or store any billing details, credit card numbers, or financial data, and explicitly disclaims all liability for transaction disputes arising from platform operations.</p> 
+        </section> 
+    </div> 
 </main>
 
-<!-- СЮДА МЫ ВСТАВИМ СКРИПТ ИЗ ВТОРОЙ ЧАСТИ -->
+<script>
+function lockPortal() { 
+    portal.setAttribute("hidden", "true"); 
+    teaser.removeAttribute("hidden"); 
+} 
+</script>
+
+<!-- ТАК СКАЗАТЬ, ПОЛОЖНЯК: ПОДКЛЮЧАЕМ НАШ ДИНАМИЧЕСКИЙ ПЕРЕВОДЧИК НА 117 ЯЗЫКОВ -->
 <script src="translator.js"></script>
-</body>
+
+</body> 
 </html>
