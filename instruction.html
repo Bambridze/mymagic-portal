@@ -9,39 +9,13 @@
     <div id="google_translate_element" style="position:absolute; opacity:0; pointer-events:none;"></div>
 
 <!-- 2. ВТОРЫМ ДЕЛОМ: Логика перевода (Мой обновленный скрипт с авто-кликом) -->
-<script>
-function getQueryParam(param) {
-    var urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-}
-
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'ru',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-    }, 'google_translate_element');
-
-    var userLang = getQueryParam('lang');
-    if (userLang) {
-        if (userLang === 'zh') userLang = 'zh-CN';
-        if (userLang === 'zh_tw') userLang = 'zh-TW';
-        
-        var checkSelect = setInterval(function() {
-            var selectEl = document.querySelector('.goog-te-combo');
-            if (selectEl) {
-                clearInterval(checkSelect);
-                selectEl.value = userLang;
-                if (typeof(Event) === 'function') {
-                    selectEl.dispatchEvent(new Event('change', { bubbles: true }));
-                } else {
-                    selectEl.fireEvent('onchange');
-                }
-            }
-        }, 100);
-    }
-}
-</script>
+<script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en'
+            }, 'google_translate_element');
+        }
+    </script>
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
