@@ -5,7 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
     <title>World of Magic — Инструкция</title>
-    <script src="https://tailwindcss.com"></script>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+        pageLanguage: 'en'
+        }, 'google_translate_element');
+        }
+    </script>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <style>
         body {
             background-color: #0A0A0F;
@@ -31,30 +41,13 @@
             top: 0px !important;
         }
     </style>
-    <script>
-        function getQueryParam(param) {
-        var urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(param);
-        }
-        var userLang = getQueryParam('lang');
-        if (userLang) {
-        if (userLang === 'zh') userLang = 'zh-CN';
-        if (userLang === 'zh_tw') userLang = 'zh-TW';
-        document.cookie = "googtrans=/ru/" + userLang + "; path=/; domain=." + location.hostname;
-        document.cookie = "googtrans=/ru/" + userLang + "; path=/;";
-        }
-        function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-        pageLanguage: 'ru',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        }, 'google_translate_element');
-        }
-    </script>
-    <script src="https://google.com"></script>
 </head>
 <body class="p-6 max-w-3xl mx-auto leading-relaxed">
 
-    <div id="google_translate_element" style="display:none;"></div>
+    <!-- КРАСИВЫЙ И ВИДИМЫЙ КОНТЕЙНЕР ДЛЯ ВЫБОРА ЯЗЫКА -->
+    <div class="flex justify-end mb-6">
+        <div id="google_translate_element"></div>
+    </div>
 
     <h1 class="text-3xl md:text-4xl font-black text-center uppercase tracking-wider mb-10 neon-green">Инструкция</h1>
 
@@ -77,11 +70,11 @@
             <p>
                 The Hall has its own video and audio logic: they loop continuously there, so to prevent any lagging, if you want to set the video and audio separately, they must be of the same duration. The files should be kept short—this guarantees the correct operation of the app during media playback. For spells, 3-5 second clips are quite enough.
             </p>
-        
+
         </section>
 
         <!-- РАМКА 2: НЕЙРОСЕТЬ VOSK И НАСТРОЙКИ ЗАКЛИНАНИЙ -->
-        <section class="bg-[#12121A] p-6 rounded-2xl border border-gray-800 border-neon space-y-4">     
+        <section class="bg-[#12121A] p-6 rounded-2xl border border-gray-800 border-neon space-y-4">
             <p>
                 The heart of our app is the Vosk neural network—it handles the recognition of your spells, which you can also change. However, there is a fly in the ointment here: for spells, you can only use words that exist in the dictionary of your chosen language. Yes, you can change the spell language too, and once you download the voice model for your chosen language, it will stay in the app, allowing you to switch it to English and back at any time without the internet. This is another feature of our app—you do not need an internet connection to use it, except for downloading the interface translation or a language model, and that's it. Though, I should also mention that the English language model works best (but that’s not certain ;-)). One more thing: if you suddenly want to change your chosen spell language, just tap the icon of the current language, and a menu will open.
             </p>
@@ -91,7 +84,7 @@
             <p>
                 You will also see "Debug Mode" in the settings. What is it and how do you use it? In this mode, you will see exactly what Vosk hears from you, and you will also see colored indicator circles to show when a spell triggers. We used this mode during development and decided it might be useful for you; if you don't need it, simply turn it off.
             </p>
-          
+
         </section>
 
         <!-- РАМКА 3: РЕЖИМЫ, ТАЙМАУТЫ И ИТОГИ -->
