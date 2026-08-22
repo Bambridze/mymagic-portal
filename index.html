@@ -1,1 +1,157 @@
-<!DOCTYPE html><html lang="en"><head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>MyMagic 🔮 Official Magic Portal</title> <script src="https://tailwindcss.com"></script> <style> body { background-color: #0A0A0F; color: #E5E5E5; font-family: system-ui, -apple-system, sans-serif; } .neon-green { color: #00FF66; text-shadow: 0 0 10px rgba(0,255,102,0.4); } .neon-cyan { color: #00FFFF; text-shadow: 0 0 10px rgba(0,255,255,0.4); } .border-neon { border-color: rgba(0,255,102,0.2); box-shadow: 0 0 15px rgba(0,255,102,0.1); } /* СТИЛЬ ССЫЛОК В ПОДВАЛЕ — ЦВЕТ КАК У НАДПИСИ STATUS */ .footer-link { color: #6b7280 !important; text-decoration: none; transition: all 0.2s ease-in-out; } .footer-link:hover { color: #ffffff !important; text-shadow: 0 0 8px rgba(255,255,255,0.3); text-decoration: underline; } /* СТИЛИЗАЦИЯ ПЕРЕКЛЮЧАТЕЛЯ ЯЗЫКОВ GOOGLE */ #google_translate_element select { background: #12121A; color: #6b7280; border: 1px solid #111827; padding: 4px 8px; border-radius: 6px; font-size: 12px; outline: none; cursor: pointer; transition: all 0.2s; } #google_translate_element select:hover { color: #ffffff; border-color: #6b7280; } .goog-te-banner-frame { display: none !important; } body { top: 0px !important; } </style></head><body class="flex flex-col min-h-screen justify-between p-6 overflow-x-hidden"> <!-- ТАИНСТВЕННАЯ ЗАГЛУШКА ДЛЯ ОБЩЕСТВЕННОСТИ --> <main id="teaser-container" class="flex flex-col items-center justify-center flex-grow text-center px-4"> <div onclick="openAdminBypass()" class="cursor-pointer select-none text-6xl md:text-8xl mb-6 animate-pulse filter drop-shadow-[0_0_20px_rgba(0,255,255,0.3)]">🔮</div> <h1 class="text-3xl md:text-5xl font-black tracking-wider mb-4 neon-cyan">MY MAGIC PORTAL</h1> <p class="text-gray-400 text-sm md:text-base max-w-md mb-8 leading-relaxed">The High Council of Mages has temporarily restricted access to the portal. Ancient scrolls and databases are being synchronized prior to the global release on Android & iOS.</p> <div class="w-full max-w-sm bg-[#12121A] p-6 rounded-2xl border border-gray-800 border-neon" id="content-area"> <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-2">Status:</span> <div class="text-xl font-bold neon-green animate-bounce">In Development.</div> </div> </main> <!-- СКРЫТЫЙ ПОРТАЛ (ЗАПЕРТ НА КЛЮЧ HIDDEN) --> <main id="portal-container" hidden class="flex-col items-center max-w-4xl mx-auto w-full flex-grow pt-8"> <div class="flex justify-between items-center w-full border-b border-gray-800 pb-4 mb-8"> <h2 class="text-2xl font-black tracking-widest neon-cyan">🔥 DEVELOPER CONSOLE</h2> <button onclick="lockPortal()" class="text-xs bg-red-900/40 text-red-400 border border-red-800 px-3 py-1 rounded-lg hover:bg-red-900 transition">CLOSE PORTAL</button> </div> <section class="w-full bg-[#12121A] p-6 rounded-2xl border border-gray-800 mb-8"> <h3 class="text-lg font-bold mb-4 flex items-center gap-2 text-white"> <span>🏆 TOP 100 MAGES</span> <span class="text-xs bg-green-900 text-green-400 px-2 py-0.5 rounded font-mono">Live</span> </h3> <div class="overflow-x-auto"> <table class="w-full text-left border-collapse"> <thead> <tr class="border-b border-gray-800 text-gray-500 text-xs uppercase tracking-wider"> <th class="py-3 px-4">Rank</th> <th class="py-3 px-4">Mage Name</th> <th class="py-3 px-4 text-right">Energy Points</th> </tr> </thead> <tbody id="leaderboard-body" class="text-sm font-mono"> <tr class="border-b border-gray-900 text-gray-400"> <td class="py-3 px-4 neon-green font-bold">#1</td> <td class="py-3 px-4 text-white font-bold">★Mage_Infinix★</td> <td class="py-3 px-4 text-right neon-cyan font-bold">9,450</td> </tr> <tr class="text-gray-600"> <td colspan="3" class="text-center py-4 text-xs italic">Database is empty. Waiting for live records from the app...</td> </tr> </tbody> </table> </div> </section> </main> <!-- ПОДВАЛ (ФУТЕР) --> <footer class="w-full text-center border-t border-gray-900 pt-4 mt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-600 gap-4"> <div>© 2026 S PRODUCTION, IE. All rights reserved.</div> <!-- ВЫБОР ЯЗЫКА ДЛЯ ВСЕГО САЙТА --> <div id="google_translate_element"></div> <div class="flex gap-4"> <a href="legal.html" class="footer-link">Privacy Policy & Terms</a> <span class="text-gray-800">•</span> <a href="instruction.html" class="footer-link">User Manual</a> </div> </footer> <script> const teaser = document.getElementById("teaser-container"); const portal = document.getElementById("portal-container"); function openAdminBypass() { const pass = prompt("Enter Creator Secret Password:"); if (pass === "tired traveler") { teaser.setAttribute("hidden", "true"); portal.removeAttribute("hidden"); } else if (pass !== null) { alert("Access denied. The Council of Mages is watching you."); } } function lockPortal() { portal.setAttribute("hidden", "true"); teaser.removeAttribute("hidden"); } </script> <!-- ТВОЯ ЛИЧНАЯ ССЫЛКА НА КЛАССИЧЕСКИЙ ПЕРЕВОДЧИК --> <script type="text/javascript"> function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element'); } </script> <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyMagic 🔮 Official Magic Portal</title>
+    <script src="https://tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0A0A0F;
+            color: #E5E5E5;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        .neon-green {
+            color: #00FF66;
+            text-shadow: 0 0 10px rgba(0,255,102,0.4);
+        }
+        .neon-cyan {
+            color: #00FFFF;
+            text-shadow: 0 0 10px rgba(0,255,255,0.4);
+        }
+        .border-neon {
+            border-color: rgba(0,255,102,0.2);
+            box-shadow: 0 0 15px rgba(0,255,102,0.1);
+        }
+        
+        /* СТИЛЬ ССЫЛОК В ПОДВАЛЕ — ЦВЕТ КАК У НАДПИСИ STATUS */
+        .footer-link {
+            color: #6b7280 !important;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+        }
+        .footer-link:hover {
+            color: #ffffff !important;
+            text-shadow: 0 0 8px rgba(255,255,255,0.3);
+            text-decoration: underline;
+        }
+        
+        /* СТИЛИЗАЦИЯ ПЕРЕКЛЮЧАТЕЛЯ ЯЗЫКОВ GOOGLE */
+        #google_translate_element select {
+            background: #12121A;
+            color: #6b7280;
+            border: 1px solid #111827;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        #google_translate_element select:hover {
+            color: #ffffff;
+            border-color: #6b7280;
+        }
+        .goog-te-banner-frame {
+    display: none !important;
+     }
+     body {
+    top: 0px !important;
+     }
+
+    </style>
+</head>
+<body class="flex flex-col min-h-screen justify-between p-6 overflow-x-hidden">
+
+    <!-- ТАИНСТВЕННАЯ ЗАГЛУШКА ДЛЯ ОБЩЕСТВЕННОСТИ -->
+    <main id="teaser-container" class="flex flex-col items-center justify-center flex-grow text-center px-4">
+        <div onclick="openAdminBypass()" class="cursor-pointer select-none text-6xl md:text-8xl mb-6 animate-pulse filter drop-shadow-[0_0_20px_rgba(0,255,255,0.3)]">🔮</div>
+        <h1 class="text-3xl md:text-5xl font-black tracking-wider mb-4 neon-cyan">MY MAGIC PORTAL</h1>
+        <p class="text-gray-400 text-sm md:text-base max-w-md mb-8 leading-relaxed">The High Council of Mages has temporarily restricted access to the portal. Ancient scrolls and databases are being synchronized prior to the global release on Android & iOS.</p>
+        <div class="w-full max-w-sm bg-[#12121A] p-6 rounded-2xl border border-gray-800 border-neon" id="content-area">
+            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-2">Status:</span>
+            <div class="text-xl font-bold neon-green animate-bounce">In Development.</div>
+        </div>
+    </main>
+
+    <!-- СКРЫТЫЙ ПОРТАЛ (ЗАПЕРТ НА КЛЮЧ HIDDEN) -->
+    <main id="portal-container" hidden class="flex-col items-center max-w-4xl mx-auto w-full flex-grow pt-8">
+        <div class="flex justify-between items-center w-full border-b border-gray-800 pb-4 mb-8">
+            <h2 class="text-2xl font-black tracking-widest neon-cyan">🔥 DEVELOPER CONSOLE</h2>
+            <button onclick="lockPortal()" class="text-xs bg-red-900/40 text-red-400 border border-red-800 px-3 py-1 rounded-lg hover:bg-red-900 transition">CLOSE PORTAL</button>
+        </div>
+        <section class="w-full bg-[#12121A] p-6 rounded-2xl border border-gray-800 mb-8">
+            <h3 class="text-lg font-bold mb-4 flex items-center gap-2 text-white">
+                <span>🏆 TOP 100 MAGES</span>
+                <span class="text-xs bg-green-900 text-green-400 px-2 py-0.5 rounded font-mono">Live</span>
+            </h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-gray-800 text-gray-500 text-xs uppercase tracking-wider">
+                            <th class="py-3 px-4">Rank</th>
+                            <th class="py-3 px-4">Mage Name</th>
+                            <th class="py-3 px-4 text-right">Energy Points</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body" class="text-sm font-mono">
+                        <tr class="border-b border-gray-900 text-gray-400">
+                            <td class="py-3 px-4 neon-green font-bold">#1</td>
+                            <td class="py-3 px-4 text-white font-bold">★Mage_Infinix★</td>
+                            <td class="py-3 px-4 text-right neon-cyan font-bold">9,450</td>
+                        </tr>
+                        <tr class="text-gray-600">
+                            <td colspan="3" class="text-center py-4 text-xs italic">Database is empty. Waiting for live records from the app...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- ПОДВАЛ (ФУТЕР) -->
+    <footer class="w-full text-center border-t border-gray-900 pt-4 mt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-600 gap-4">
+        <div>© 2026 S PRODUCTION, IE. All rights reserved.</div>
+        
+        <!-- ВЫБОР ЯЗЫКА ДЛЯ ВСЕГО САЙТА -->
+        <div id="google_translate_element"></div>
+        
+        <div class="flex gap-4">
+            <a href="legal.html" class="footer-link">Privacy Policy & Terms</a>
+            <span class="text-gray-800">•</span>
+            <a href="instruction.html" class="footer-link">User Manual</a>
+        </div>
+    </footer>
+
+    <script>
+        const teaser = document.getElementById("teaser-container");
+        const portal = document.getElementById("portal-container");
+
+        function openAdminBypass() {
+            const pass = prompt("Enter Creator Secret Password:");
+            if (pass === "tired traveler") {
+                teaser.setAttribute("hidden", "true");
+                portal.removeAttribute("hidden");
+            } else if (pass !== null) {
+                alert("Access denied. The Council of Mages is watching you.");
+            }
+        }
+
+        function lockPortal() {
+            portal.setAttribute("hidden", "true");
+            teaser.removeAttribute("hidden");
+        }
+    </script>
+
+    <!-- ТВОЯ ЛИЧНАЯ ССЫЛКА НА КЛАССИЧЕСКИЙ ПЕРЕВОДЧИК -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en'
+            }, 'google_translate_element');
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
