@@ -23,10 +23,6 @@
             border-color: rgba(0,255,102,0.2);
             box-shadow: 0 0 15px rgba(0,255,102,0.1);
         }
-        .border-cyan-neon {
-            border-color: rgba(0,255,255,0.2);
-            box-shadow: 0 0 15px rgba(0,255,255,0.1);
-        }
         .footer-link {
             color: #6b7280 !important;
             text-decoration: none;
@@ -62,60 +58,24 @@
 </head>
 <body class="flex flex-col min-h-screen justify-between p-6 overflow-x-hidden">
 
-    <!-- ЦЕНТРАЛЬНЫЙ БЛОК: ОФИЦИАЛЬНАЯ СТРАНИЦА ПРИЛОЖЕНИЯ -->
-    <main id="teaser-container" class="flex flex-col items-center justify-center flex-grow text-center px-4 py-8">
-        <!-- Секретный вход по клику на сферу сохранен -->
+    <!-- ТВОЙ РОДНОЙ ТАИНСТВЕННЫЙ ТИЗЕР -->
+    <main id="teaser-container" class="flex flex-col items-center justify-center flex-grow text-center px-4">
         <div onclick="openAdminBypass()" class="cursor-pointer select-none text-6xl md:text-8xl mb-6 animate-pulse filter drop-shadow-[0_0_20px_rgba(0,255,255,0.3)]">🔮</div>
+        <h1 class="text-3xl md:text-5xl font-black tracking-wider mb-4 neon-cyan">MY MAGIC PORTAL</h1>
+        <p class="text-gray-400 text-sm md:text-base max-w-md mb-8 leading-relaxed">The High Council of Mages has temporarily restricted access to the portal. Ancient scrolls and databases are being synchronized prior to the global release on Android & iOS.</p>
         
-        <h1 class="text-4xl md:text-6xl font-black tracking-wider mb-4 neon-cyan">MY MAGIC APP</h1>
-        
-        <!-- Четкое описание для модераторов платёжки -->
-        <p class="text-gray-400 text-sm md:text-base max-w-xl mb-2 leading-relaxed">
-            An advanced offline voice-control utility for Android devices. Customize your environment and system actions using automated speech recognition powered by embedded AI local models.
-        </p>
-        <p class="text-gray-500 text-xs md:text-sm max-w-lg mb-8 italic">
-            100% Autonomous • Zero Data Tracking • Fully Personalizable
-        </p>
-
-        <!-- БЛОК МАГАЗИНА И ЗАГРУЗКИ -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-2xl bg-[#12121A] p-6 rounded-2xl border border-gray-800 border-neon mb-6">
-            
-            <!-- Пакет 1: Премиум -->
-            <div class="bg-[#1A1A24] p-4 rounded-xl border border-gray-800 flex flex-col justify-between items-center text-center">
-                <div>
-                    <span class="text-[10px] font-bold text-purple-400 uppercase tracking-widest block mb-1">License</span>
-                    <h3 class="text-lg font-bold text-white mb-2">💎 FULL PERSONALIZATION</h3>
-                    <p class="text-gray-400 text-xs mb-4">Unlock unlimited custom video backgrounds, custom audio spells, and advanced configuration slots.</p>
-                </div>
-                <!-- Сюда вставишь ссылку на товар из Lemon Squeezy -->
-                <a href="#" class="w-full py-2.5 px-4 bg-purple-600 hover:bg-purple-500 text-white text-sm font-bold rounded-lg transition tracking-wide shadow-lg shadow-purple-950/50">
-                    BUY PREMIUM KEY
-                </a>
-            </div>
-
-            <!-- Пакет 2: Энергия -->
-            <div class="bg-[#1A1A24] p-4 rounded-xl border border-gray-800 flex flex-col justify-between items-center text-center">
-                <div>
-                    <span class="text-[10px] font-bold text-green-400 uppercase tracking-widest block mb-1">Consumable</span>
-                    <h3 class="text-lg font-bold text-white mb-2">⚡️ 100 ENERGY PACK</h3>
-                    <p class="text-gray-400 text-xs mb-4">Recharge your internal magic storage with 100 energy units instantly to active and test extra items.</p>
-                </div>
-                <!-- Сюда вставишь вторую ссылку из Lemon Squeezy -->
-                <a href="#" class="w-full py-2.5 px-4 bg-[#00FF66] hover:bg-[#22ff7a] text-black text-sm font-black rounded-lg transition tracking-wide shadow-lg shadow-green-950/30">
-                    BUY 100 ENERGY
-                </a>
-            </div>
+        <div class="w-full max-w-sm bg-[#12121A] p-6 rounded-2xl border border-gray-800 border-neon mb-6" id="content-area">
+            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-2">Status:</span>
+            <div class="text-xl font-bold neon-green animate-bounce">In Development.</div>
         </div>
 
-        <!-- КНОПКА СКАЧИВАНИЯ БЕСПЛАТНОГО APK -->
-        <div class="w-full max-w-2xl flex justify-center">
-            <a href="magicapp-release.apk" class="flex items-center gap-2 py-3 px-8 bg-transparent hover:bg-white/5 text-gray-300 hover:text-white text-sm font-bold rounded-xl border border-gray-700 border-cyan-neon transition tracking-wider">
-                <span>🤖 DOWNLOAD FREE APK (V1.0)</span>
-            </a>
-        </div>
+        <!-- КНОПКА СКАЧИВАНИЯ БЕСПЛАТНОГО APK (Для пользователей с сайта) -->
+        <a href="magicapp-release.apk" class="text-xs text-gray-500 hover:text-gray-300 border border-gray-800 px-4 py-2 rounded-xl bg-[#12121A]/40 transition tracking-wider">
+            🤖 DOWNLOAD FREE APK (V1.0)
+        </a>
     </main>
 
-    <!-- СКРЫТЫЙ ПОРТАЛ РАЗРАБОТЧИКА (ЗАПЕРТ НА КЛЮЧ HIDDEN) -->
+    <!-- СКРЫТЫЙ ПОРТАЛ (ЗАПЕРТ НА КЛЮЧ HIDDEN) -->
     <main id="portal-container" hidden class="flex-col items-center max-w-4xl mx-auto w-full flex-grow pt-8">
         <div class="flex justify-between items-center w-full border-b border-gray-800 pb-4 mb-8">
             <h2 class="text-2xl font-black tracking-widest neon-cyan">🔥 DEVELOPER CONSOLE</h2>
@@ -151,16 +111,24 @@
     </main>
 
     <!-- ПОДВАЛ (ФУТЕР) -->
-    <footer class="w-full text-center border-t border-gray-900 pt-4 mt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-600 gap-4">
-        <div>© 2026 S PRODUCTION, IE. All rights reserved.</div>
+    <footer class="w-full text-center border-t border-gray-900 pt-4 mt-8 flex flex-col gap-4">
         
-        <!-- ВЫБОР ЯЗЫКА ДЛЯ ВСЕГО САЙТА -->
-        <div id="google_translate_element"></div>
-        
-        <div class="flex gap-4">
-            <a href="legal.html" class="footer-link">Privacy Policy & Terms</a>
-            <span class="text-gray-800">•</span>
-            <a href="instruction.html" class="footer-link">User Manual</a>
+        <!-- АККУРАТНОЕ БЕЛОЕ ОПИСАНИЕ СТРОГО ДЛЯ МОДЕРАТОРОВ ПЛАТЁЖКИ -->
+        <div class="text-[10px] text-gray-700 max-w-xl mx-auto leading-normal">
+            MyMagic is an offline voice-controlled entertainment application for Android devices. Users can download the APK file for free. Additional optional digital content, including premium interface customization and virtual magic energy points packages, can be unlocked inside the application setup menu.
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-between items-center text-xs text-gray-600 gap-4 w-full">
+            <div>© 2026 S PRODUCTION, IE. All rights reserved.</div>
+            
+            <!-- ВЫБОР ЯЗЫКА ДЛЯ ВСЕГО САЙТА (ВЕРНУЛ) -->
+            <div id="google_translate_element"></div>
+            
+            <div class="flex gap-4">
+                <a href="legal.html" class="footer-link">Privacy Policy & Terms</a>
+                <span class="text-gray-800">•</span>
+                <a href="instruction.html" class="footer-link">User Manual</a>
+            </div>
         </div>
     </footer>
 
@@ -184,6 +152,7 @@
         }
     </script>
 
+    <!-- СКРИПТ КЛАССИЧЕСКОГО ПЕРЕВОДЧИКА GOOGLE (ВЕРНУЛ) -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
