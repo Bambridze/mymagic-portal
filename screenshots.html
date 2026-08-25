@@ -15,7 +15,9 @@
         }
         h1 { color: #00FF66; font-size: 20px; margin-bottom: 8px; }
         p { color: #8a8a93; font-size: 14px; margin-bottom: 24px; }
-        .container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .container { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+        .screenshot-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .label { color: #00FFFF; font-size: 12px; font-weight: bold; text-transform: uppercase; }
         img {
             max-width: 90%;
             width: 360px;
@@ -27,10 +29,20 @@
 </head>
 <body>
     <h1>MyMagic - Microphone Usage Proof</h1>
-    <p>This screen displays the user instruction where the application requests microphone permission for local voice controls.</p>
+    <p>The screenshots below demonstrate where and why the application requests microphone access (RECORD_AUDIO) for local offline speech recognition.</p>
+    
     <div class="container">
-        <!-- Твой скриншот, который лежит в этой же папке -->
-        <img src="screen1.jpg" alt="Voice Command Instruction Screen">
+        <!-- БЛОК С ПЕРВЫМ СКРИНШОТОМ -->
+        <div class="screenshot-block">
+            <div class="label">1. Entry Instruction Screen</div>
+            <img src="screen1.jpg" alt="Voice Command Instruction Screen">
+        </div>
+
+        <!-- БЛОК СО ВТОРЫМ СКРИНШОТОМ -->
+        <div class="screenshot-block">
+            <div class="label">2. Main Hall Combat Mode Screen</div>
+            <img src="screen2.jpg" alt="Combat Mode Spell Casting Screen">
+        </div>
     </div>
 </body>
 </html>
