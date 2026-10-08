@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "62531617860",
+    "project_id": "mymagic-fbbbb",
+    "storage_bucket": "mymagic-fbbbb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62531617860:android:b0e2ce6cc1b6e287d46811",
+        "android_client_info": {
+          "package_name": "com.sproduction.mymagic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuTIETHGtGBvU8oyH0BiqduOpKakO9Cq8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

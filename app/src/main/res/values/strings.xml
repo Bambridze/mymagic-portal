@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- SYSTEM APP NAME -->
+    <string name="app_name">MyMagic</string>
+
+    <!-- GLOBAL DEFAULT (ENGLISH) -->
+    <string name="disclaimer_title">LEGAL DISCLAIMER &amp; TERMS</string>
+    <string name="disclaimer_age_warning">⚠️ AGE RESTRICTION: This application is strictly intended for users aged 13 or older. By proceeding, you confirm your compliance.</string>
+    <string name="disclaimer_data_privacy">🔒 ZERO DATA COLLECTION: The app operates 100%% locally. We do not collect, store, or transmit your audio recordings or personal data to external servers.</string>
+    <string name="disclaimer_liability_damage">⚡ LIMITATION OF LIABILITY: The developers are not liable for any physical damage to your devices (including cracked screens or water damage) incurred during usage. You assume full personal responsibility for your actions.</string>
+    <string name="disclaimer_terms_link">Terms of Service</string>
+    <string name="disclaimer_privacy_link">Privacy Policy</string>
+    <string name="disclaimer_accept_button">I ACCEPT ALL TERMS AND RISKS</string>
+
+    <!-- RUSSIAN (РУССКИЙ) -->
+    <string name="disclaimer_title_ru">ЮРИДИЧЕСКОЕ СОГЛАШЕНИЕ</string>
+    <string name="disclaimer_age_warning_ru">⚠️ ВОЗРАСТНОЙ ЦЕНЗ: Приложение предназначено строго для лиц старше 13 лет. Используя его, вы подтверждаете свой возраст.</string>
+    <string name="disclaimer_data_privacy_ru">🔒 ПОЛНАЯ КОНФИДЕНЦИАЛЬНОСТЬ: Приложение работает 100%% локально. Мы не собираем и не передаем ваши аудиозаписи и личные данные на внешние серверы.</string>
+    <string name="disclaimer_liability_damage_ru">⚡ ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ: Разработчики не несут ответственности за любые повреждения вашего имущества (разбитые экраны, падение в воду/бассейн), произошедшие в процессе использования. Вы действуете на свой страх и риск.</string>
+    <string name="disclaimer_terms_link_ru">Условия использования (Terms of Service)</string>
+    <string name="disclaimer_privacy_link_ru">Политика конфиденциальности (Privacy Policy)</string>
+    <string name="disclaimer_accept_button_ru">Я ПРИНИМАЮ ВСЕ РИСКИ И УСЛОВИЯ</string>
+
+    <!-- GEORGIAN (ქართული) -->
+    <string name="disclaimer_title_ka">იურიდიული ხელშეკრულება</string>
+    <string name="disclaimer_age_warning_ka">⚠️ ასაკობრივი შეზღუდვა: აპლიკაცია განკუთვნილია მკაცრად 13 წელზე უფროსი ასაკის პირთათვის. მისი გამოყენებით თქვენ ადასტურებთ თქვენს ასაკს.</string>
+    <string name="disclaimer_data_privacy_ka">🔒 სრული კონფიდენციალურობა: აპლიკაცია მუშაობს 100%% ლოკალურად. ჩვენ არ ვაგროვებთ, არ ვინახავთ და არ გადავცემთ თქვენს აუდიოჩანაწერებს ან პირად მონაცემებს გარე სერვერებზე.</string>
+    <string name="disclaimer_liability_damage_ka">⚡ პასუხისმგებლობის შეზღუდვა: დეველოპერები არ არიან პასუხისმგებელნი თქვენი ქონების რაიმე სახის დაზიანებაზე (გატეხილი ეკრანები, მოწყობილობის წყალში/აუზში ვარდნა), რომელიც მოხდა აპლიკაციის გამოყენების პროცესში. თქვენ მოქმედებთ ნებაყოფლობით, საკუთარი რისკით.</string>
+    <string name="disclaimer_terms_link_ka">გამოყენების პირობები (Terms of Service)</string>
+    <string name="disclaimer_privacy_link_ka">კონფიდენციალურობის პოლიტიკა (Privacy Policy)</string>
+    <string name="disclaimer_accept_button_ka">ვეთანხმები ყველა პირობას და რისკს</string>
+</resources>
