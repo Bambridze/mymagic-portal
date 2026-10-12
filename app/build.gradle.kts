@@ -14,7 +14,7 @@ android {
         applicationId = "com.sproduction.mymagic"
         minSdk = 29
         targetSdk = 35
-        versionCode = 37
+        versionCode = 38
         versionName = "1.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

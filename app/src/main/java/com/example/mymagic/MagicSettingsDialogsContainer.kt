@@ -259,6 +259,21 @@ fun MagicSettingsDialogsContainer(
                                 putInt("global_magic_energy", newEnergy)
                                 putBoolean(pendingUnlockKey, true)
                             }
+                            // ОТПРАВКА МИНУСА ЗА СЛОТ В ОБЛАКО
+                            val backupStatus = prefs.getString("email_backup_status", "none") ?: "none"
+                            if (backupStatus == "saved") {
+                                val sproId = prefs.getString("user_magic_spro_id", "") ?: ""
+                                if (sproId.isNotEmpty()) {
+                                    scope.launch {
+                                        NetworkManager.logEnergyTransaction(
+                                            sproId = sproId,
+                                            energyChange = -20, // Списываем 20 энергии за слот кастомизации
+                                            reason = pendingUnlockKey // Фиксируем ID слота для антифрода
+                                        )
+                                    }
+                                }
+                            }
+
                             onRefreshTriggerIncrement()
                         }
                         showConfirmDialog = false

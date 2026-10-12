@@ -24,7 +24,7 @@ object IdManager {
      */
     fun generateMagicId(context: Context): String {
         val tail = getDeviceTail(context)
-        if (tail == "unknown") return "S⚡PRO-ERROR-ID"
+        if (tail == "unknown") return "ERROR-ID"
 
         return try {
             val input = tail + SECRET_SALT
@@ -39,9 +39,9 @@ object IdManager {
             val part1 = cleanHex.substring(0, 4)
             val part2 = cleanHex.substring(4, 8)
 
-            "S⚡PRO-$part1-$part2"
+            "$part1-$part2"
         } catch (_: Throwable) {
-            "S⚡PRO-FALLBACK"
+            "FALLBACK"
         }
     }
 }

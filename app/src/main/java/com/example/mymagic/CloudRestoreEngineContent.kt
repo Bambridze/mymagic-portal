@@ -77,11 +77,18 @@ fun CloudRestoreEngineContent(
                         onStepChange("syncing")
                         onLoadingChange(true)
                         scope.launch {
-                            // Сканируем профиль в облаке
+
                             val profileJson = withContext(Dispatchers.IO) {
                                 NetworkManager.verifyIdAndEmailForRestore(idRestoreInput.trim(), emailInput.trim())
                             }
                             if (profileJson != null) {
+                                prefs.edit { putString("user_magic_spro_id", idRestoreInput.trim()) }
+                                onIdChange(idRestoreInput.trim())
+
+
+
+
+                                // Процесс 2: Пошло восстановление данных своим чередом
                                 try {
                                     val jsonArray = JSONArray(profileJson)
                                     val profileObject = jsonArray.getJSONObject(0)
@@ -96,8 +103,14 @@ fun CloudRestoreEngineContent(
                                             putString("saved_user_email", emailInput.trim())
                                             putString("email_backup_status", "saved")
                                         }
+
+                                        // ШЛАНГ СИНХРОНИЗАЦИИ ДЛЯ ПРЕМПИУМА: Подхватываем токен на лету без кодов
+                                        scope.launch {
+                                            NetworkManager.verifyIdAndEmailForRestore(idRestoreInput.trim(), emailInput.trim())
+                                        }
+
                                         onLoadingChange(false)
-                                        onRestoreDone(emailInput.trim())
+                                        onRestoreDone(idRestoreInput.trim()) // Безопасно отдаем ID наверх
                                     } else {
                                         // Качаем всю историю транзакций
                                         val historyJson = withContext(Dispatchers.IO) {
@@ -106,29 +119,23 @@ fun CloudRestoreEngineContent(
                                         var calculatedEnergy = 0
                                         val unlockedSlots = mutableMapOf<String, Boolean>()
 
+                                        // НАЙДИ ЭТОТ БЛОК В CloudRestoreEngineContent.kt И ЗАМЕНИ НА ИСПРАВЛЕННЫЙ:
                                         if (historyJson != null) {
                                             val txArray = JSONArray(historyJson)
                                             for (i in 0 until txArray.length()) {
                                                 val tx = txArray.getJSONObject(i)
                                                 val change = tx.optInt("energy_change", 0)
-                                                val reason = tx.optString("reason", "")
+                                                val reason = tx.optString("reason", "").trim()
                                                 calculatedEnergy += change
 
-                                                // ИСПРАВЛЕНО: Сверяем один в один с твоими ключами из Supabase!
-                                                if (reason.startsWith("unlocked_command_") || reason.startsWith("unlocked_video_") || reason.startsWith("unlocked_sound_") || change == -20) {
-                                                    // Выковыриваем чистый ID заклинания (например: mortis_fatal, light_on)
-                                                    val slotId = reason.replace("unlocked_command_", "")
-                                                        .replace("unlocked_video_", "")
-                                                        .replace("unlocked_sound_", "")
-
-                                                    if (slotId.isNotEmpty()) {
-                                                        unlockedSlots["unlocked_command_$slotId"] = true
-                                                        unlockedSlots["unlocked_video_$slotId"] = true
-                                                        unlockedSlots["unlocked_sound_$slotId"] = true
-                                                    }
+                                                // Если это честная покупка слота кастомизации за -20 энергии
+                                                if (reason.isNotEmpty() && (reason.startsWith("unlocked_") || change == -20)) {
+                                                    // Записываем в локальную память телефона строго ту фичу, которая была куплена
+                                                    unlockedSlots[reason] = true
                                                 }
                                             }
                                         }
+
 
                                         // Накатываем честно пересчитанный прогресс в память телефона
                                         prefs.edit {
@@ -140,9 +147,13 @@ fun CloudRestoreEngineContent(
                                             unlockedSlots.forEach { (key, value) -> putBoolean(key, value) }
                                         }
 
-                                        // ИСПРАВЛЕНО НАМЕРТВО: Закрываем диалог ТОЛЬКО после полного наката данных!
+                                        // ШЛАНГ СИНХРОНИЗАЦИИ ДЛЯ ОБЫЧНОГО ЮЗЕРА: Подхватываем токен на лету без отправки кодов
+                                        scope.launch {
+                                            NetworkManager.verifyIdAndEmailForRestore(idRestoreInput.trim(), emailInput.trim())
+                                        }
+
                                         onLoadingChange(false)
-                                        onRestoreDone(emailInput.trim())
+                                        onRestoreDone(idRestoreInput.trim()) // Безопасно отдаем ID наверх
                                     }
                                 } catch (_: Exception) {
                                     onLoadingChange(false)

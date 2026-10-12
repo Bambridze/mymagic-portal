@@ -109,7 +109,7 @@ object NetworkManager {
             val cleanId = sproId.trim()
             val cleanEmail = email.trim()
 
-            val urlFilter = "?spro_id=ilike.*" + cleanId.trim() + "&email=eq." + cleanEmail.trim()
+            val urlFilter = "?spro_id=eq." + cleanId.trim() + "&email=eq." + cleanEmail.trim()
             val response = client.get(SUPABASE_URL + "/rest/v1/user_profiles" + urlFilter) {
                 header("apikey", SUPABASE_ANON_KEY)
                 header("Authorization", "Bearer " + SUPABASE_ANON_KEY)
@@ -151,26 +151,58 @@ object NetworkManager {
      */
     suspend fun logEnergyTransaction(sproId: String, energyChange: Int, reason: String): Boolean = withContext(Dispatchers.IO) {
         try {
-            val txBody = "{\"user_spro_id\":\"" + sproId + "\",\"energy_change\":" + energyChange + ",\"reason\":\"" + reason + "\",\"store_source\":\"samsung\"}"
+            val txBody = "{\"user_spro_id\":\"" + sproId.trim() + "\",\"energy_change\":" + energyChange + ",\"reason\":\"" + reason + "\",\"store_source\":\"samsung\"}"
             val txResponse = client.post(SUPABASE_URL + "/rest/v1/energy_transactions") {
                 contentType(ContentType.Application.Json)
                 header("apikey", SUPABASE_ANON_KEY)
                 header("Authorization", "Bearer " + SUPABASE_ANON_KEY)
                 setBody(txBody)
             }
+
+            // ВРЕЗКА ЛОГОВ: выводим статус ответа от Supabase
+            Log.d("MagicNetwork", "ОТПРАВКА ТРАНЗАКЦИИ: ID=$sproId, Изменение=$energyChange, Причина=$reason")
+            Log.d("MagicNetwork", "ОТВЕТ ОБЛАКА: Код статуса = ${txResponse.status.value}, Текст = ${txResponse.bodyAsText()}")
+
             txResponse.status.value == 200 || txResponse.status.value == 201
         } catch (e: Exception) {
+            Log.e("MagicNetwork", "КРИТИЧЕСКИЙ СБОЙ СЕТИ ПРИ ОТПРАВКЕ ТРАНЗАКЦИИ", e)
             false
         }
     }
 
+
     /**
      * Вспомогательный метод для отправки ID на почту
      */
+    // НАЙДИ ЭТОТ МЕТОД В NetworkManager.kt И ЗАМЕНИ НА БЕЗОПАСНЫЙ ВЫЗОВ ОБЛАКА SUPABASE:
     private suspend fun sendIdToUserEmail(email: String, sproId: String): Boolean = withContext(Dispatchers.IO) {
-        Log.d(TAG, "Письмо с ID $sproId успешно отправлено на адрес $email")
-        true
+        try {
+            // Формируем JSON-пакет для Supabase: только кому отправить и какой ID
+            val jsonBody = "{\"user_email\":\"" + email.trim() + "\",\"magic_id\":\"" + sproId.trim() + "\"}"
+            val httpBody = io.ktor.content.TextContent(jsonBody, ContentType.Application.Json)
+
+            // Делаем защищенный вызов облачной функции Supabase (назовем её send-magic-id)
+            val response = client.post(SUPABASE_URL + "/functions/v1/send-magic-id") {
+                contentType(ContentType.Application.Json)
+                header("apikey", SUPABASE_ANON_KEY)
+                header("Authorization", "Bearer " + SUPABASE_ANON_KEY)
+                setBody(httpBody)
+            }
+
+            // Если облако приняло запрос (код 200 или 201), значит всё отлично, цепочка сработала
+            val isTriggered = response.status.value == 200 || response.status.value == 201
+            if (isTriggered) {
+                Log.d(TAG, "Сигнал на отправку ID успешно передан в Supabase для адреса: $email")
+            } else {
+                Log.e(TAG, "Supabase не принял команду отправки. Код ответа: ${response.status.value}")
+            }
+            isTriggered
+        } catch (e: Exception) {
+            Log.e(TAG, "Сбой сети при попытке связаться с облачной функцией Supabase", e)
+            false
+        }
     }
+
 
     suspend fun fetchTransactionsAfterRefund(sproId: String, purchaseDateIso: String): String? = withContext(Dispatchers.IO) {
         try {
