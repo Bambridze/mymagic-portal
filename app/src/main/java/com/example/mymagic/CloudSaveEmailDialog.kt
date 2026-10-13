@@ -131,7 +131,7 @@ fun CloudSaveEmailDialog(
                                 Button(onClick = {
                                     isNetworkLoading = true
                                     scope.launch {
-                                        val isSent = withContext(Dispatchers.IO) { NetworkManager.sendOtpToEmail(emailInput.trim()) }
+                                        val isSent = withContext(Dispatchers.IO) { NetworkManager.sendOtpToEmail(emailInput.trim(), sproId) }
                                         isNetworkLoading = false
                                         if (isSent) currentStep = "otp" else { errorMessage = locManager.get("cs_err_net"); currentStep = "input" }
                                     }
@@ -140,22 +140,44 @@ fun CloudSaveEmailDialog(
                         }
                         "otp" -> {
                             Text(text = locManager.get("cs_otp_sent"), color = deepBlueColor, fontSize = 14.sp, textAlign = TextAlign.Center)
-                            OutlinedTextField(value = otpInput, onValueChange = { if (it.length <= 8) otpInput = it; errorMessage = "" }, label = { Text(text = locManager.get("cs_hint_code")) }, modifier = Modifier.fillMaxWidth())
-                            Row(modifier = Modifier.fillMaxWidth()) {
-                                TextButton(onClick = { currentStep = "input" }) { Text(text = locManager.get("cs_back")) }
-                                Button(onClick = {
-                                    if (otpInput.length in 6..8) {
-                                        isNetworkLoading = true
-                                        scope.launch {
-                                            val isVerified = withContext(Dispatchers.IO) { NetworkManager.verifyOtpAndSaveMonolithic(sproId, emailInput.trim(), otpInput.trim(), prefs.getInt("global_magic_energy", 0), prefs.getBoolean("is_premium_user", false)) }
-                                            isNetworkLoading = false
-                                            if (isVerified) {
-                                                prefs.edit { putString("saved_user_email", emailInput.trim()); putString("email_backup_status", "saved"); putString("user_magic_spro_id", sproId) }
-                                                onSaveSuccess(emailInput.trim())
-                                            } else errorMessage = locManager.get("cs_err_code")
-                                        }
-                                    } else errorMessage = locManager.get("cs_err_length")
-                                }) { Text(text = locManager.get("cs_confirm")) }
+
+                            OutlinedTextField(
+                                value = otpInput,
+                                onValueChange = { if (it.length <= 8) otpInput = it; errorMessage = "" },
+                                label = { Text(text = locManager.get("cs_hint_code")) },
+                                modifier = Modifier.fillMaxWidth()
+                            )
+
+                            // ДОБАВЛЕННЫЙ БЛОК: Вывод сообщения о неверном или просроченном коде
+                            if (errorMessage.isNotEmpty()) {
+                                Text(
+                                    text = errorMessage,
+                                    color = Color(0xFFFF4D4D),
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    modifier = Modifier.padding(top = 2.dp)
+                                )
+                            }
+
+                            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                                TextButton(onClick = { currentStep = "input"; errorMessage = "" }) { Text(text = locManager.get("cs_back"), color = deepBlueColor.copy(0.7f)) }
+                                Button(
+                                    onClick = {
+                                        if (otpInput.length in 6..8) {
+                                            isNetworkLoading = true
+                                            scope.launch {
+                                                val isVerified = withContext(Dispatchers.IO) { NetworkManager.verifyOtpAndSaveMonolithic(sproId, emailInput.trim(), otpInput.trim(), prefs.getInt("global_magic_energy", 0), prefs.getBoolean("is_premium_user", false)) }
+                                                isNetworkLoading = false
+                                                if (isVerified) {
+                                                    prefs.edit { putString("saved_user_email", emailInput.trim()); putString("email_backup_status", "saved"); putString("user_magic_spro_id", sproId) }
+                                                    onSaveSuccess(emailInput.trim())
+                                                } else errorMessage = locManager.get("cs_err_code")
+                                            }
+                                        } else errorMessage = locManager.get("cs_err_length")
+                                    },
+                                    colors = ButtonDefaults.buttonColors(containerColor = deepBlueColor.copy(0.15f)),
+                                    modifier = Modifier.border(1.dp, deepBlueColor.copy(0.3f), RoundedCornerShape(50.dp))
+                                ) { Text(text = locManager.get("cs_confirm"), color = deepBlueColor, fontWeight = FontWeight.Black) }
                             }
                         }
                         "restore_mode", "syncing" -> {

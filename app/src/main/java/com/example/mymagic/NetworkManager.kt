@@ -29,10 +29,13 @@ object NetworkManager {
     /**
      * Запрос OTP для верификации почты (при первой привязке)
      */
-    suspend fun sendOtpToEmail(email: String): Boolean = withContext(Dispatchers.IO) {
+    // ЖЕЛЕЗНАЯ СБОРКА JSON: Передаем sproId прямо в блок "data"
+    suspend fun sendOtpToEmail(email: String, sproId: String): Boolean = withContext(Dispatchers.IO) {
         try {
             val cleanEmail = email.trim()
-            val jsonBody = "{\"email\":\"" + cleanEmail + "\",\"create_user\":true,\"data\":{},\"gotrue_meta_security\":{}}"
+
+            // Вставляем наш magic_id прямо внутрь системного блока "data"
+            val jsonBody = "{\"email\":\"" + cleanEmail + "\",\"create_user\":true,\"data\":{\"magic_id\":\"" + sproId.trim() + "\"},\"gotrue_meta_security\":{}}"
             val httpBody = io.ktor.content.TextContent(jsonBody, ContentType.Application.Json)
 
             val response = client.post(SUPABASE_URL + "/auth/v1/otp") {
@@ -45,6 +48,7 @@ object NetworkManager {
             false
         }
     }
+
 
     /**
      * Монолитная привязка почты к текущему ID (с верификацией OTP) + отправка ID юзеру на почту

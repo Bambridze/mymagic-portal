@@ -38,7 +38,12 @@ import androidx.compose.ui.unit.sp
 import androidx.core.content.edit
 import kotlinx.coroutines.launch
 import java.io.File
-
+import androidx.compose.foundation.layout.Box
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.ui.Alignment
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.background
 @Composable
 fun MagicSettingsDialogsContainer(
     context: Context,
@@ -322,36 +327,57 @@ fun MagicSettingsDialogsContainer(
 
     if (showLangDialog.value) {
         AlertDialog(
-            onDismissRequest = { showLangDialog.value = false },
+            onDismissRequest = { if (!locManager.isDownloading) showLangDialog.value = false },
             title = { Text(locManager.get("m_interface_lang"), fontWeight = FontWeight.Bold) },
             text = {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(300.dp)
-                        .verticalScroll(rememberScrollState()),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    fullInterfaceLanguagesList.forEach { lang ->
-                        LanguageCard(
-                            language = lang,
-                            isErrorFlash = false,
-                            isHintFlash = false,
-                            enabled = !locManager.isDownloading,
-                            onClick = {
-                                scope.launch {
-                                    val res = locManager.fetchLanguagePack(lang.code)
-                                    if (res == MagicLocalResult.SUCCESS || res == MagicLocalResult.CACHE_USED) {
-                                        showLangDialog.value = false
+                Box(modifier = Modifier.fillMaxWidth().height(300.dp)) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .verticalScroll(rememberScrollState()),
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        fullInterfaceLanguagesList.forEach { lang ->
+                            LanguageCard(
+                                language = lang,
+                                isErrorFlash = false,
+                                isHintFlash = false,
+                                enabled = !locManager.isDownloading,
+                                onClick = {
+                                    scope.launch {
+                                        val res = locManager.fetchLanguagePack(lang.code)
+                                        if (res == MagicLocalResult.SUCCESS || res == MagicLocalResult.CACHE_USED) {
+                                            showLangDialog.value = false
+                                        }
                                     }
                                 }
-                            }
-                        )
+                            )
+                        }
+                    }
+
+                    // НАШ КРУГЛЯШ ДЛЯ ЗАЩИТЫ ПОКО М5 ОТ ЗАВИСАНИЯ В НАСТРОЙКАХ
+                    if (locManager.isDownloading) {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(Color(0xFF12121A).copy(alpha = 0.8f)),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            CircularProgressIndicator(
+                                color = neonGreen,
+                                strokeWidth = 3.dp,
+                                modifier = Modifier.size(36.dp)
+                            )
+                        }
                     }
                 }
             },
             confirmButton = {
-                Button(onClick = { showLangDialog.value = false }, colors = ButtonDefaults.buttonColors(neonGreen)) {
+                Button(
+                    onClick = { showLangDialog.value = false },
+                    colors = ButtonDefaults.buttonColors(neonGreen),
+                    enabled = !locManager.isDownloading
+                ) {
                     Text(locManager.get("b_c"), color = Color.Black)
                 }
             },
