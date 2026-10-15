@@ -159,18 +159,15 @@ fun MagicShopSection(
                             putBoolean(pendingBuyId, true)
                         }
 
-                        // ЧАСТЬ 3 ТЗ: Бухгалтерский учёт списания энергии в облаке Supabase
-                        val backupStatus = prefs.getString("email_backup_status", "none") ?: "none"
-                        if (backupStatus == "saved") {
-                            val sproId = prefs.getString("user_magic_spro_id", "") ?: ""
-                            if (sproId.isNotEmpty()) {
-                                scope.launch {
-                                    NetworkManager.logEnergyTransaction(
-                                        sproId = sproId,
-                                        energyChange = -10, // Честное списание в минус
-                                        reason = pendingBuyId // Чистый уникальный ID видео-слота из кода!
-                                    )
-                                }
+                        // ЧЕСТНЫЙ УЧЕТ СПИСАНИЯ ЭНЕРГИИ В ОБЛАКЕ ДЛЯ ВСЕХ ЮЗЕРОВ (БЕЗ ПРОВЕРКИ ПОЧТЫ)
+                        val sproId = prefs.getString("user_magic_spro_id", "") ?: ""
+                        if (sproId.isNotEmpty()) {
+                            scope.launch {
+                                NetworkManager.logEnergyTransaction(
+                                    sproId = sproId,
+                                    energyChange = -10, // Честное списание в минус за слот
+                                    reason = pendingBuyId // Уникальный ID видео-слота
+                                )
                             }
                         }
                     }
@@ -179,6 +176,7 @@ fun MagicShopSection(
                     Text(locManager.get("v_yes"), color = neonGreen, fontWeight = FontWeight.Bold)
                 }
             }
+
         )
     }
 }

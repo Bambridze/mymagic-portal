@@ -11,7 +11,17 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -22,7 +32,13 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -37,9 +53,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.edit
 import androidx.core.net.toUri
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.compose.LocalLifecycleOwner
 import kotlinx.coroutines.delay
 import kotlin.time.Duration.Companion.milliseconds
 
@@ -89,19 +102,7 @@ fun MagicHubSettingsOverlay(
         }
     }
 
-    val lifecycleOwner = LocalLifecycleOwner.current
-    DisposableEffect(lifecycleOwner) {
-        val observer = LifecycleEventObserver { _, event ->
-            if (event == Lifecycle.Event.ON_RESUME) {
-                magicEnergy = prefs.getInt("global_magic_energy", 0)
-                isPremium = prefs.getBoolean("is_premium_user", false)
-                backupStatusState = prefs.getString("email_backup_status", "none") ?: "none"
-                dialogRefreshTrigger++
-            }
-        }
-        lifecycleOwner.lifecycle.addObserver(observer)
-        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
-    }
+
 
     Box(Modifier.fillMaxSize().background(Color.Black.copy(0.9f)).padding(24.dp), Alignment.Center) {
         MagicSettingsDialogsContainer(
@@ -168,7 +169,7 @@ fun MagicHubSettingsOverlay(
                 MagicShopSection(isExpanded = isShopMenuExpanded, onToggle = { isShopMenuExpanded = it }, category = shopCategory, onCategoryChange = { shopCategory = it }, magicEnergy = magicEnergy, prefs = prefs, locManager = locManager, onEnergyUpdate = { magicEnergy = it; dialogRefreshTrigger++ })
 
                 val garnetNeon = Color(0xFF960018)
-                Card(modifier = Modifier.fillMaxWidth().clickable { ctx.startActivity(Intent(Intent.ACTION_VIEW, "https://pixabay.com".toUri())) }.border(1.dp, garnetNeon.copy(0.5f), RoundedCornerShape(12.dp)), colors = CardDefaults.cardColors(containerColor = garnetNeon.copy(0.15f).compositeOver(Color.Black))) {
+                Card(modifier = Modifier.fillMaxWidth().clickable { ctx.startActivity(Intent(Intent.ACTION_VIEW, "https://pixabay.com/sound-effects/".toUri())) }.border(1.dp, garnetNeon.copy(0.5f), RoundedCornerShape(12.dp)), colors = CardDefaults.cardColors(containerColor = garnetNeon.copy(0.15f).compositeOver(Color.Black))) {
                     Row(modifier = Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
                         Text("🎵 ", fontSize = 16.sp)
                         Text(text = locManager.get("m_free_audio").uppercase(), color = Color(0xFFFF4D6A), fontSize = 13.sp, fontWeight = FontWeight.Bold)
@@ -219,8 +220,8 @@ fun MagicHubSettingsOverlay(
             }
         }
         AnimatedVisibility(visible = showCustomToast, enter = fadeIn() + scaleIn(), exit = fadeOut() + scaleOut()) {
-            Card(colors = CardDefaults.cardColors(containerColor = Color(0xFF1E1E2A)), shape = RoundedCornerShape(12.dp), modifier = Modifier.width(240.dp).border(2.dp, Color.Red.copy(0.7f), RoundedCornerShape(12.dp))) {
-                Text(text = customToastText, color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center, modifier = Modifier.padding(16.dp).fillMaxWidth())
+            Card(colors = CardDefaults.cardColors(containerColor = Color(0xFF1E1E2A)), shape = RoundedCornerShape(12.dp), modifier = Modifier.width(240.dp).border(2.dp, Color.Green.copy(0.7f), RoundedCornerShape(12.dp))) {
+                Text(text = customToastText, color = Color.White, fontSize = 26.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center, modifier = Modifier.padding(16.dp).fillMaxWidth())
             }
         }
         val currentSproId = prefs.getString("user_magic_spro_id", "") ?: ""
@@ -234,12 +235,9 @@ fun MagicHubSettingsOverlay(
                 isPremium = prefs.getBoolean("is_premium_user", false)
                 backupStatusState = "saved"
                 showBackupDialogInSettings = false
-                triggerCustomToast("✓ Synced")
+                triggerCustomToast("✓")
                 dialogRefreshTrigger++
             }
         )
-
-
-
     }
 }

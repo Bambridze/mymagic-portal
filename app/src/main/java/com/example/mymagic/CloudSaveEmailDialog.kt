@@ -50,7 +50,8 @@ fun CloudSaveEmailDialog(
     sproId: String,
     locManager: MagicLocalizationManager,
     onDismissRequested: () -> Unit,
-    onSaveSuccess: (String) -> Unit
+    onSaveSuccess: (String) -> Unit,
+    onShowToast: ((String) -> Unit)? = null
 ) {
     if (!visible) return
 
@@ -171,6 +172,7 @@ fun CloudSaveEmailDialog(
                                                 if (isVerified) {
                                                     prefs.edit { putString("saved_user_email", emailInput.trim()); putString("email_backup_status", "saved"); putString("user_magic_spro_id", sproId) }
                                                     onSaveSuccess(emailInput.trim())
+                                                    onShowToast?.invoke("✓")
                                                 } else errorMessage = locManager.get("cs_err_code")
                                             }
                                         } else errorMessage = locManager.get("cs_err_length")

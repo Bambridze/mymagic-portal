@@ -124,7 +124,11 @@ class MagicLocalizationManager(private val context: Context) {
         "cs_restore_success" to "Saved progress restored successfully.",
         "cs_restore_err_not_found" to "ID not found. Please check and try again.",
         "fraud_title" to "Attention",
-        "fraud_message" to "Refund detected for purchase(s), your progress will be updated in accordance with the recorded data. You can restore your progress using the established methods."
+        "fraud_message" to "Refund detected for purchase(s), your progress will be updated in accordance with the recorded data. You can restore your progress using the established methods.",
+        "email_restore_subject" to "Magic ID.",
+        "email_restore_body_1" to "Your email address has been successfully verified.",
+        "email_restore_body_2" to "Your unique identifier for recovering your progress in app: ",
+        "email_restore_body_warn" to "IMPORTANT: This identifier can be used to restore data ONLY ONCE."
     )
 
     init {

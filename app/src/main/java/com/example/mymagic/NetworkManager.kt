@@ -96,10 +96,12 @@ object NetworkManager {
 
             val isSaved = profileResponse.status.value == 200 || profileResponse.status.value == 201
             if (isSaved) {
-                // ФУНДАМЕНТАЛЬНО: Отправляем юзеру его ID на почту, чтобы он его не потерял!
-                sendIdToUserEmail(cleanEmail, sproId)
+                // ОДНА СТРОЧКА: Пинаем наш новый изолированный файл. Supabase в полной безопасности!
+                UniOneSender.sendMagicIdEmailAsync(cleanEmail, sproId)
             }
+
             isSaved
+
         } catch (e: Exception) {
             Log.e(TAG, "Сбой монолитного сохранения", e)
             false
