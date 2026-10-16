@@ -1,0 +1,152 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>World of Magic — Legal Documentation</title> 
+<style> 
+body { 
+    background-color: #0A0A0F; 
+    color: #E5E5E5; 
+    font-family: system-ui, -apple-system, sans-serif; 
+    margin: 0; 
+    padding: 24px; 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+    box-sizing: border-box; 
+} 
+main { 
+    max-w: 48rem; 
+    margin-left: auto; 
+    margin-right: auto; 
+    text-align: left; 
+    line-height: 1.625; 
+    flex-grow: 1; 
+    width: 100%; 
+} 
+.nav-panel { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 24px; 
+    border-bottom: 1px solid #111827; 
+    padding-bottom: 16px; 
+} 
+.neon-link, .neon-link:link, .neon-link:visited { 
+    color: #6b7280 !important; 
+    text-decoration: none; 
+    font-size: 0.85rem; 
+    font-weight: 500; 
+    transition: all 0.2s ease-in-out; 
+} 
+.neon-link:hover { 
+    color: #ffffff !important; 
+    text-shadow: 0 0 10px rgba(255,255,255,0.4); 
+    text-decoration: underline; 
+} 
+h1 { font-size: 1.875rem; font-weight: 900; color: #22d3ee; letter-spacing: 0.05em; margin-bottom: 8px; } 
+.updated-text { font-size: 0.75rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 32px; } 
+h2 { font-size: 1.25rem; font-weight: 900; color: #22d3ee; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 32px; margin-bottom: 16px; } 
+section { background-color: #12121A; padding: 20px; border-radius: 12px; border: 1px solid rgba(0,255,102,0.15); box-shadow: 0 0 15px rgba(0,255,102,0.05); margin-bottom: 16px; } 
+h3 { color: #ffffff; font-weight: bold; font-size: 1rem; margin-top: 0; margin-bottom: 8px; } 
+p { margin-top: 0; margin-bottom: 12px; font-size: 0.95rem; } 
+p:last-child { margin-bottom: 0; } 
+code { color: #4ade80; background-color: rgba(0,0,0,0.4); padding: 2px 6px; border-radius: 4px; font-family: monospace; } 
+
+/* Стилизация аккуратного переключателя языков */
+#google_translate_element select {
+    background: #12121A;
+    color: #6b7280;
+    border: 1px solid #111827;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+#google_translate_element select:hover {
+    color: #ffffff;
+    border-color: #6b7280;
+}
+.goog-te-banner-frame { 
+    display: none !important; 
+}
+body { 
+    top: 0px !important; 
+}
+
+</style> 
+</head> 
+<body> 
+<main> 
+    <!-- ВЕРХНЯЯ ПАНЕЛЬ --> 
+        <!-- ВЕРХНЯЯ ПАНЕЛЬ --> 
+    <div class="nav-panel" style="justify-content: flex-end;"> 
+        <!-- ВЫБОР ЯЗЫКА ПРЯМО НА СТРАНИЦЕ ДОКУМЕНТОВ -->
+        <div id="google_translate_element"></div>
+    </div> 
+
+
+    <!-- ОСНОВНОЙ КОНТЕНТ --> 
+    <div> 
+        <h1>LEGAL AGREEMENTS</h1> 
+        <div class="updated-text">Last Updated: July 2026</div> 
+        <h2 id="privacy-en">1. Privacy Policy</h2> 
+        <section> 
+            <h3>1.1. 100% Offline Privacy Commitment</h3> 
+            <p>S PRODUCTION, IE built the MyMagic app as a Commercial app. This Service is provided by S PRODUCTION, IE at no cost and is intended for use as is. This application operates entirely offline and autonomously on your mobile device. We do not host any external user accounts, cloud databases, or remote tracking servers for personal information.</p> 
+        </section> 
+        <section> 
+            <h3>1.2. Microphone Permission (Audio Recording)</h3> 
+            <p>The application requires temporary access to your device's microphone via the <code>RECORD_AUDIO</code> permission solely for the local speech recognition engine (Vosk) to detect verbal magic commands. All voice processing is handled inside your RAM locally. Audio streams are never recorded, never stored on the physical drive, and are never transmitted over the internet.</p> 
+        </section> 
+        <section> 
+            <h3>1.3. Device Storage Access</h3> 
+            <p>Storage read permissions are utilized exclusively via the standard Android MediaStore API to safely scan and copy custom .mp4 or .mp3 media packages placed by the user inside the local "Download" directory into the app's isolated private sandbox directory. No other internal folders are accessed or modified.</p> 
+        </section> 
+        <section> 
+            <h3>1.4. Children's Privacy (Age Restriction)</h3> 
+            <p>These Services do not address anyone under the age of 13. By accepting the in-app legal disclaimer, users officially confirm they are at least 13 years old. We do not knowingly collect personally identifiable information from anyone. Since the software does not transmit data, a user's privacy is technically protected by the architecture itself.</p> 
+        </section> 
+        <h2 id="tos-en">2. Terms of Service (ToS)</h2> 
+        <section> 
+            <h3>2.1. Disclaimer of Warranties & Liability</h3> 
+            <p>The application is provided on an "AS IS" and "AS AVAILABLE" basis without any warranties of any kind. S PRODUCTION, IE explicitly disclaims all liability for real-world safety issues, personal injuries, accidents, or hardware complications (including, but not limited to, device flashlight degradation, camera hardware fatigue, or display burn-in) arising from the application's operation or user negligence.</p> 
+        </section> 
+        <section> 
+            <h3>2.2. User-Generated & Custom Content</h3> 
+            <p>Users are solely and fully responsible for any multimedia files (.mp4 and .mp3) they manually place inside the local directory (Download/MyMagicMedia). S PRODUCTION, IE does not host, monitor, distribute, or assume any liability for user-imported assets or potential copyright infringements caused by custom user files.</p> 
+        </section> 
+        <section> 
+            <h3>2.3. Rewarded Advertisements & Magic Energy Balance
+              </h3> 
+            <p>The application offers advanced multimedia customization features that can be unlocked using <strong>Magic Energy (⚡️)</strong> or via a <strong>Lifetime Premium Access</strong>. Users can purchase virtual energy packages or permanent premium upgrades directly within the application interface. All financial transactions, order processing, and payment security are exclusively handled by our official merchant of Record, <strong>Paddle</strong>. The availability of items and pricing may vary based on regional restrictions and payment platform requirements.</p>
+ 
+            <p>All payment processing, currency conversion, and financial traffic are securely managed by <strong>Paddle</strong>. S PRODUCTION, IE does not collect, process, or store any personal financial data, credit card numbers, or billing identifiers. <strong>Due to the digital nature of the software content, which is delivered and activated immediately inside the application, all purchases of Magic Energy and Premium upgrades are final and strictly non-refundable.</strong> S PRODUCTION, IE explicitly disclaims all liability for any payment gateway failures, transaction errors, or regional connection issues arising from third-party platform operations.</p>
+
+        </section> 
+    </div> 
+     <div>© 2026 S PRODUCTION, IE, Viacheslav Kotelnikov. All rights reserved.</div>
+</main> 
+
+<script> 
+function lockPortal() { 
+    portal.setAttribute("hidden", "true"); 
+    teaser.removeAttribute("hidden"); 
+} 
+</script> 
+
+<!-- ЛЕГКИЙ И БЫСТРЫЙ СКРИПТ КЛАССИЧЕСКОГО ПЕРЕВОДЧИКА -->
+<script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en'
+            }, 'google_translate_element');
+        }
+    </script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body> 
+</html>
