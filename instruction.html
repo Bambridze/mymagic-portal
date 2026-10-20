@@ -57,38 +57,88 @@
     <div class="space-y-8 text-sm md:text-base text-gray-300">
 
         <!-- РАМКА 1: ВВЕДЕНИЕ И ВХОД В ПРИЛОЖЕНИЕ -->
-        <section class="bg-[#12121A] p-6 rounded-2xl border border-gray-800 border-neon space-y-4">
-            <p>
-                  Welcome to Your World of Magic!Introducing an app that turns your smartphone into a magic wand that responds to your voice commands. Just say a spell, and your wand triggers a short video and sound linked to that enchantment. And of course, there are spells to turn your flashlight on and off!
-            </p>
-            <p>
-                  You probably want to try it out as soon as possible, right? Caught you! No problem, here is a quick summary to try your magic in action without reading a long manual, which you can return to at any time. As soon as you say the password correctly, the entrance will unlock, and you will enter the app and find yourself in the Hall. You will see buttons at the top. On the left is the toggle for Casting Mode—this is exactly where you will be casting your spells. But first, go to Settings (the gear icon in the top right corner) to at least check out which spells you already have at your disposal. As soon as you memorize the spells and learn how to pronounce them correctly (if you didn't know how before), you can immediately switch to Casting Mode and see how it works. If you want more, please read the manual further, because magic is a pretty tricky thing! ;-)
-            </p>
-            <p>
-                  And now, let’s move on to how your magic works.When you first open the app, you accept the terms of the user agreement and land on the instructions page. It explains how to enter your world of magic, namely: you need to say the password correctly in English. Once you confirm you have read these instructions and grant the app permission to use the microphone, a wall will appear before you. Here, I must tell you about the main feature of our app—complete customization of almost everything in it. Moving on: the wall in front of you is a short video where a wall stands before you at first, and then it crumbles, placing you into the world of your magic. It is truly yours, because how it looks and sounds is limited only by your imagination. You can create any pictures, videos, and even audio using AI generators, for example, or in any other way, and insert them into the app with customization unlocked. If you want, you can purchase ready-made videos by previewing and choosing the ones you like in the Telegram channel. There is also a link to Pixabay, a website with free content. After purchasing and tapping the download button, the video will download directly into the correct folder. From the website, files will end up in the "Download" folder as usual, and you will need to move them to the "MyMagicMedia" folder—this applies to all mp.4 and mp.3 files used by the app.
-            </p>
-            <p>
-                  So, as an example of how the app login is designed: a short video of 5 to 10 seconds has been created and split into two parts. The first part is before the wall begins to crumble, and the second part is, naturally, everything else. The first part loops continuously in the video player until you say the correct password or use the backdoor. Then, consequently, the second part of the video starts. In the login settings, when you change it, that is exactly how it is marked—video one and video two. You will be able to either insert a video with overlaid audio, or without audio and then connect any audio file right there, or mute the overlaid audio and connect any audio file. Well, I think you will figure it out there; the settings for displaying how spells work—meaning video and audio—are pretty much the same, except you don't need to cut anything there.
-            </p>
-            <p>
-                  The Hall has its own video and audio logic: they loop continuously there, so to prevent any lagging, if you want to set the video and audio separately, they must be of the same duration. The files should be kept short—this guarantees the correct operation of the app during media playback. For spells, 3-5 second clips are quite enough.
-            </p>
+       <!-- РАМКА 1: ВВЕДЕНИЕ, БЫСТРЫЙ СТАРТ И КАСТОМИЗАЦИЯ -->
+<section class="bg-[#12121A] p-6 rounded-2xl border border-gray-800 border-neon space-y-6">
+    
+    <h3>🪄 Welcome to Your World of Magic!</h3>
+    <p>
+        Introducing an app that turns your smartphone into a magic wand that responds to your voice commands. Just say a spell, and your wand triggers a short video and sound linked to that enchantment. And of course, there are spells to turn your flashlight on and off!
+    </p>
 
-        </section>
+    <h4>⚡ Quick Start (Skip the Manual)</h4>
+    <p>
+        Want to try your magic in action right away? Here is a quick summary to get you started (you can return to the full manual at any time):
+    </p>
+    <ul>
+        <li><strong>Unlock the Entrance:</strong> Say the password correctly, and you will enter the app's main area—the <strong>Hall</strong>.</li>
+        <li><strong>Check Your Spells:</strong> Go to <strong>Settings</strong> (the gear icon in the top right corner) to see which spells are already at your disposal and learn how to pronounce them.</li>
+        <li><strong>Start Casting:</strong> Use the toggle on the top left to switch into <strong>Casting Mode</strong> and start speaking your enchantments!</li>
+    </ul>
 
-        <!-- РАМКА 2: НЕЙРОСЕТЬ VOSK И НАСТРОЙКИ ЗАКЛИНАНИЙ -->
-        <section class="bg-[#12121A] p-6 rounded-2xl border border-gray-800 border-neon space-y-4">
-            <p>
-                  The heart of our app is the Vosk neural network—it handles the recognition of your spells, which you can also change. However, there is a fly in the ointment here: for spells, you can only use words that exist in the dictionary of your chosen language. Yes, you can change the spell language too, and once you download the voice model for your chosen language, it will stay in the app, allowing you to switch it to English and back at any time without the internet. This is another feature of our app—you do not need an internet connection to use it, except for downloading the interface translation or a language model, and that's it. Though, I should also mention that the English language model works best (but that’s not certain ;-)). One more thing: if you suddenly want to change your chosen spell language, just tap the icon of the current language, and a menu will open.
-            </p>
-            <p>
-                  To change the spells themselves, you need to type them in the corresponding lines in the settings with correct grammar. I think you can guess that if you write a spell or a password in a language different from the one you chose for Vosk, neither the spells nor the password will work upon login. However, if you suddenly forget to change the password after changing the spell language (or if you just forget it entirely ;-)), there is a backdoor for this situation. To use it, just tap the cracked door icon.
-            </p>
-            <p>
-                  You will also see "Debug Mode" in the settings. What is it and how do you use it? In this mode, you will see exactly what Vosk hears from you, and you will also see colored indicator circles to show when a spell triggers. We used this mode during development and decided it might be useful for you; if you don't need it, simply turn it off.
-            </p>
+    <h4>🎨 Media Customization & Logic</h4>
+    <p>
+        The main feature of this app is complete customization. How your magic looks and sounds is limited only by your imagination! You can use AI generators or any other tools to create your own pictures, videos, and audio.
+    </p>
+    
+    <h5>📂 Managing Your Files:</h5>
+    <ul>
+        <li><strong>Ready-made Media:</strong> You can preview and purchase premium videos via our <strong>Telegram channel</strong>. Content downloaded from here goes directly into the correct app folder.</li>
+        <li><strong>Free Content:</strong> Use the provided link to <strong>Pixabay</strong> for free assets.</li>
+        <li><strong>Manual File Moving:</strong> Files downloaded from websites will end up in your device's standard "Download" folder. You must manually move all <code>.mp4</code> and <code>.mp3</code> files to the <strong>"MyMagicMedia"</strong> folder for the app to recognize them.</li>
+    </ul>
 
-        </section>
+    <h5>🎬 Video & Audio Behavior:</h5>
+    <ul>
+        <li><strong>Login Scene:</strong> The login video (5–10 seconds) is split into two parts. <strong>Video One</strong> loops continuously at the wall. Once you say the password, <strong>Video Two</strong> plays, showing the wall crumbling. You can use videos with built-in audio, mute them, or link separate audio files in the settings.</li>
+        <li><strong>The Hall:</strong> Media here loops continuously. To prevent lagging, if you set video and audio separately, <strong>they must be of the exactly same duration</strong>.</li>
+        <li><strong>Spells:</strong> Keep files short to guarantee correct playback. Short clips of <strong>3-5 seconds</strong> are quite enough.</li>
+    </ul>
+
+</section>
+
+<!-- РАМКА 2: НЕЙРОСЕТЬ VOSK И НАСТРОЙКИ ЗАКЛИНАНИЙ -->
+<section class="bg-[#12121A] p-6 rounded-2xl border border-gray-800 border-neon space-y-6">
+    
+    <h3>🧠 Vosk Neural Network & Voice Recognition</h3>
+    <p>
+        The heart of our app is the <strong>Vosk neural network</strong>—it handles the offline recognition of your spells. 
+    </p>
+
+    <h4>🌐 Language Models & Offline Mode</h4>
+    <ul>
+        <li><strong>100% Offline:</strong> You do not need an internet connection to use the app. Internet is required <strong>only</strong> for the initial download of the interface translation or a new language model.</li>
+        <li><strong>Dictionary Constraint:</strong> For your spells, you can only use words that actually exist in the dictionary of your chosen language. </li>
+        <li><strong>Switching Languages:</strong> Tap the current language icon to open the menu. You can switch between downloaded models (like English and back) at any time. <i>Note: The English language model currently works best!</i></li>
+    </ul>
+
+    <h4>⚠️ Spell Setup & The Backdoor</h4>
+    <ul>
+        <li><strong>Grammar Matters:</strong> To change spells, type them in the corresponding lines in the settings with correct grammar.</li>
+        <li><strong>Language Match:</strong> If you write a spell or password in a language different from the active Vosk model, <strong>they will not work</strong>.</li>
+        <li><strong>🚪 The Backdoor:</strong> If you change the language and forget to update your password (or just completely forget it), tap the <strong>cracked door icon</strong> on the login screen to bypass it.</li>
+    </ul>
+
+    <h4>🛠️ Debug Mode</h4>
+    <p>
+        In the settings, you will find a <strong>"Debug Mode"</strong> switch. This tool was used during development and can be helpful for you:
+    </p>
+    <ul>
+        <li>It shows you exactly <strong>what Vosk hears</strong> in real-time.</li>
+        <li>It displays <strong>colored indicator circles</strong> to show when a spell triggers.</li>
+        <li>If you don't need this visual data, simply toggle it off.</li>
+    </ul>
+         <h4>💎 Premium & Customization Store</h4>
+    <p>
+        By default, the application allows you to change the login password, interface language, and screen scaling for each video. However, <strong>full customization</strong> is a premium feature:
+    </p>
+    <ul>
+        <li><strong>Premium Access:</strong> Completely and permanently unlocks all available customization slots in the application.</li>
+        <li><strong>⚡ Energy Packs:</strong> Can be used to unlock specific customization options manually (<strong>20 points</strong> per item) or to download new videos from our in-app multimedia store (<strong>10 points</strong> per video). </li>
+        <li><strong>Content Updates:</strong> Videos in the store will be continuously added and updated over time!</li>
+    </ul>
+
+</section>
+
 
         <!-- РАМКА 3: РЕЖИМЫ, ТАЙМАУТЫ И ИТОГИ -->
         <section class="bg-[#12121A] p-6 rounded-2xl border border-gray-800 border-neon space-y-4">
@@ -116,10 +166,7 @@
     <li>Enter your linked email and the <strong>Application ID</strong> found in the very first email you received during registration. Your entire balance (including Premium and Energy) will instantly return to your screen!</li>
 </ol>
 
-            <p>
-                  And now for some less pleasant news: by default, the application allows you to change the login password, interface language, and screen scaling for each video, I think many will find it useful ;-). However, <strong>full customization</strong>strong> is available only by purchasing either Premium — which completely unlocks all available customization in the application — or "energy" packs, which can also be used to unlock customization options (20 points for each item), or to download new videos from our in-app multimedia store (10 points). Videos in the store will be continuously added and updated over time.
-
-              </p>
+            
                         <p>Here is the list of supported Vosk languages:</p>
 
             <ul class="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-2 text-xs md:text-sm font-mono text-white">
@@ -151,12 +198,34 @@
                 <li>🇪🇸 Català</li>
                 <li>💚 Esperanto</li>
             </ul>
-            <p>
-                  And here are a few more points: originally, spells consist of a couple of words or a single long word, as is the case with the light-on spell. This is necessary to eliminate or at least minimize false triggers, so I recommend doing the same when you change the spells to your own. But again, that is up to you—you will see for yourself how it goes. Also, another thing: if you set your own video with overlaid audio, you must turn off the default sound for that audio to play; there are buttons right next to it for this purpose. There is no sound on the login lock screen, only video. And one more thing: there are 2 operating modes for the flashlight, but this works on Android 13+ and not on all phones; on budget devices, this feature will most likely be unavailable. Furthermore, if your device has weak hardware, it might not run the neural network smoothly, and there is nothing we can do about that. However, we will keep working on our app to improve it. In fact, we already have some ideas on what to add next, so we have thoughts for at least a couple of updates. I won't reveal them yet—let it be a surprise instead! ;-)
-            </p>
-            <p>
-                  And with that, sending big hugs and positive vibes to everyone!Hope you enjoy our app!
-            </p>
+            <!-- РАМКА 3: ВАЖНЫЕ НЮАНСЫ И ЗАКЛЮЧЕНИЕ -->
+<section class="bg-[#12121A] p-6 rounded-2xl border border-gray-800 border-neon space-y-6">
+
+    <h3>💡 Additional Tips & Device Requirements</h3>
+    
+    <h4>🗣️ Smart Spell Casting:</h4>
+    <ul>
+        <li><strong>Avoid False Triggers:</strong> Default spells consist of a couple of words or a single long word (like the flashlight spell). We highly recommend using the same structure for your custom spells to prevent accidental activations.</li>
+        <li><strong>Audio Overlays:</strong> If you use your own video with custom overlaid audio, you <strong>must turn off the default sound</strong> using the buttons right next to it for your audio to play properly.</li>
+        <li><strong>Login Screen:</strong> Please note that there is no sound on the login lock screen by default—only video playback.</li>
+    </ul>
+
+    <h4>📱 Hardware & OS Compatibility:</h4>
+    <ul>
+        <li><strong>Flashlight Modes:</strong> The app features 2 operating modes for the flashlight. This requires <strong>Android 13+</strong> and may be completely unavailable on budget or older devices.</li>
+        <li><strong>Performance:</strong> The Vosk neural network runs locally. If your device has weak or outdated hardware, it might not run smoothly.</li>
+    </ul>
+
+    <h4>🚀 What's Next?</h4>
+    <p>
+        We are constantly working to improve the application! We already have great ideas for at least the next couple of updates, but we'll keep them as a surprise for now! 😉
+    </p>
+
+    <div class="pt-4 border-t border-gray-800 text-center text-gray-400">
+        <p>❤️ Sending big hugs and positive vibes to everyone! Hope you enjoy our app! ❤️</p>
+    </div>
+
+</section>
 
 
 
